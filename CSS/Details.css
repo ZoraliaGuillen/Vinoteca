@@ -1,0 +1,120 @@
+.cardContainerDetails{
+    margin: 25px 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardContainerDetails .imageCardDetails{
+    position: relative;
+    width: 750px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border);
+}
+
+.cardContainerDetails .imageCardDetails .fa-heart{
+    position: absolute;
+    color: var(--grey);
+    font-size: 30px;
+    top: 30px;
+    left: 30px;
+}
+
+.cardContainerDetails .imageCardDetails .fa-heart:hover{
+    color: var(--purple2);
+}
+
+.cardContainerDetails .imageCardDetails .wine{
+    height: 500px;
+}
+
+.cardContainerDetails .imageCardDetails .flag{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 30px;
+    right: 30px;
+}
+
+.cardDetails{
+    width: 400px;
+    height: 550px;
+    text-align: center;
+}
+
+.cardDetails .name{
+    font-size: 30px;
+    text-align: center;
+}
+
+.cardDetails .winery{
+    font-size: 20px;
+    text-align: center;
+}
+
+.cardDetails .price{
+    color: var(--purple2);
+    font-size: 40px;
+    font-weight: 900;
+    margin: 30px 0px;
+    text-align: center;
+}
+
+.cardDetails .quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDetails .quantity button{
+    background-color: white;
+    width: 25px;
+    height: 50px;
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDetails .quantity div{
+    width: 75px;
+    height: 50px;
+    border: var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDetails .buttonsDetail .shoppingCart{
+    background-color: var(--purple2);
+    color: white;
+    padding: 15px 20px;
+    margin: 30px 0px;
+    text-align: center;
+}
+
+.cardDetails .buttonsDetail .shoppingCart i{
+    color: white;
+}
+
+.winesDetails h3{
+    font-size: 20px;
+    padding: 3.5px 0px;
+    text-align: left;
+    border-bottom: var(--border);
+}
+
+.winesDetails div{
+    display: flex;
+}
+
+.winesDetails h4, .winesDetails p{
+    padding: 2.5px 0px;
+    border-bottom: var(--border);
+    width: 50%;
+    text-align: left;
+}

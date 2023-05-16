@@ -1,0 +1,437 @@
+:root{
+    --purple1:#952F57;
+    --purple2:#62152D;
+    --grey:#B3B3B3;
+    --box-shadow: 0 5px 2px -2px rgba(0,0,0,.25);
+    --border: 1px solid var(--grey);
+}
+
+* {
+    color: #414141;
+    font-size: 15px;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    border: none; outline: none;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.headerOne{
+    background-color: black;
+    height: 40px;
+}
+
+.headerTwo{
+    background-color: white;
+    height: 60px;
+    padding: 0px 75px;
+    border-bottom: var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerTwo > div{
+    width: 250px;
+}
+
+.headerTwo .search{
+    padding: 5px 10px;
+    border: 1px solid var(--grey);
+}
+
+.headerTwo h1{
+    color: black;
+    font-size: 40px;
+}
+
+.headerTwo h1 a{
+    list-style: none !important;
+}
+
+.headerTwo h1 i{
+    color: black;
+    font-size: 35px;
+}
+
+.headerTwo .icons{
+    text-align: right;
+}
+
+.headerTwo .icons i{
+    color: black;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.headerThree{
+    background-color: white;
+    height: 40px;
+    padding: 0px 75px;
+    box-shadow: var(--box-shadow); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerThree nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerThree > nav > ul > li > a{
+    list-style: none !important;
+    font-size: 12.5px;
+    padding: 0px 10px;
+}
+
+.home{
+    position: relative;
+    height: 100vh;
+    background-color: var(--purple2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconsHome{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    top: 90.25%;
+    border-radius: 25px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.iconsHome > div{
+    font-size: 12.5px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.iconsHome > div i{
+    color: black;
+    font-size: 25px;
+}
+
+.wines-tittleOne{
+    margin-top: 25px;
+}
+
+h2{
+    font-size: 25px;
+    padding: 25px;
+    text-align: center;
+}
+
+.cardContainerWines, .cardContainerTipesOfWines, .cardContainerCountries{
+    margin: 0px 75px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cardContainerWines{
+    background-color: var(--grey);
+    padding: 15px 0px;
+    text-align: center;
+}
+
+.cardWines{
+    position: relative;
+    background-color: white;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+}
+
+.cardWines .fa-heart{
+    position: absolute;
+    color: var(--grey);
+    font-size: 20px;
+    top: 15px;
+    left: 15px;
+}
+
+.cardWines .fa-heart:hover{
+    color: var(--purple2);
+}
+
+.cardWines img{
+    height: 175px;
+}
+
+.cardWines .flag{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    right: 15px;
+}
+
+
+.cardWines .score{
+    color: #676767;
+    font-size: 20px;
+    font-weight: 900;
+    padding-top: 10px;
+}
+
+.cardWines .price{
+    color: var(--purple2);
+    font-size: 17.5px;
+    font-weight: 900;
+    padding: 5px 0px;
+
+}
+
+
+.cardWines .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardWines button{
+    background-color: var(--purple2);
+    padding: 5px 10px;
+}
+
+.cardWines button a{
+    color: white;
+}
+
+
+
+
+.cardWines .fa-star, .cardWines .fa-star-half-stroke{
+    color: var(--purple2);
+    font-size: 20px;
+}
+
+
+
+.cardWines h3{
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.cardContainerTipesOfWines{
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cardTipesOfWines{
+    position: relative;
+    width: 275px;
+    height: 375px;
+    overflow: hidden;
+}
+
+.cardTipesOfWines img{
+    width: 100%;
+    height: 100%;
+    transition: 1s ease; 
+}
+
+.cardTipesOfWines:hover > img{
+    transform: scale(1.15);
+}
+
+.cardTipesOfWines .text{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease; 
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+
+.cardTipesOfWines .text h3 a{
+    color: white;
+    font-size: 25px;
+}
+
+.cardTipesOfWines:hover > .text{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cardContainerCountries{
+    background-color: black;
+    padding: 25px 0px;
+    margin-top: 25px;
+}
+
+.cardContainerCountries i{
+    font-size: 20px;
+    color: white;
+}
+
+.cardContainerCountries .cardCountries{
+    width: 125px;
+    border: 1px solid white;
+    padding: 15px;
+    text-align: center;
+}
+
+.cardContainerCountries .cardCountries h3{
+    font-weight: 400;
+    color: white;
+}
+
+.newslatter{
+    margin-top: 25px;
+    background-color: var(--purple2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newslatterTitle{
+    color: white;
+}
+
+.newslatter p{
+    font-size: 17.5px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.newslatter input{
+    width: 300px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--grey);
+}
+
+.newslatter button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+
+
+.allWines{
+    margin: 0px 75px;
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filters{
+    width: 500px;
+    height: 500px;
+    background-color: #62152D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    background-color: black;
+    padding: 25px 75px;
+}
+
+.footer .links{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.footer .links div{
+    width: 250px;
+}
+
+.footer .links div h3{
+    font-size: 17.5px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer .links div p{
+    color: white;
+}
+
+.footer .icons-rrss{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer .icons-rrss button{
+    background-color: var(--purple2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.footer .icons-rrss i{
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright{
+    background-color: #111111;
+    padding: 5px;
+    text-align: center;
+}
