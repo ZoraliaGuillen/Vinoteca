@@ -124,7 +124,7 @@ function pintarHTML(array) {
                 </strong>
                 <div class="buttons">
                     <button><a href="./HTML/Details.html?=id=${array[i].Id}.html">VER DETALLE</a></button>
-                    <button><a href="">AGREGAR</a></button>
+                    <button class="add"><a href="">AGREGAR</a></button>
                 </div>
             </div>
         <div>
@@ -134,6 +134,38 @@ function pintarHTML(array) {
     tarjetasVinos.innerHTML = html;
 
 }
+///
 
+const btnCart = document.querySelector('.fa-cart-shopping');
+const containerCartProducts = document.querySelector(".containerCartProducts")
 
+btnCart.addEventListener('click', () => {
+	containerCartProducts.classList.toggle('hidden-cart');
+});
 
+const rowProduct = document.querySelector('.rowProduct');
+const cartProduct = document.querySelector('.cartProduct');
+const cardContainerWiness = document.querySelector('.cardContainerWiness')
+let allProducts = []
+const Total = document.querySelector('.Total');
+const countProducts = document.querySelector('#countProductsCartShopping');
+const cartEmpty = document.querySelector('.cartEmpty');
+const cartTotal = document.querySelector('.cartTotal');
+
+cardContainerWiness.addEventListener('click', e => {
+	
+    if (e.target.classList.contains('add')){
+		const product = e.target.parentElement;
+
+		const infoProduct = {
+			quantity: 1,
+			title: product.querySelector('.name').textContent,
+			price: product.querySelector('.price').textContent,
+
+           
+            
+		};
+        
+    }
+		
+});

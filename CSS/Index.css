@@ -71,6 +71,87 @@ header{
     padding: 5px;
 }
 
+.fa-cart-shopping{
+    position: relative;
+}
+
+.countCartShopping{
+    position: absolute;
+    top: 70px;
+    right: 65px;
+
+    background-color: var(--purple2);
+    color: #fff;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.countCartShopping span{
+    font-size: 12.5px;
+    color: white;
+}
+
+.containerCartProducts{
+    position: absolute;
+    top: 140px;
+    right: 65px;
+
+    background-color: #fff;
+    width: 400px;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+}
+
+.hidden-cart{
+    display: none;
+}
+
+.infoCartProduct{
+    width: 100%;
+    display: flex;
+    padding: 15px 0px;
+    border-bottom: var(--border);
+}
+
+.countCart, .PriceCart, .close{
+    font-size: 17.5px;
+    text-align: center;
+    width: 10%;
+}
+
+.titleCart{
+    font-size: 17.5px;
+    font-weight: 600;
+    text-align: left;
+    width: 70%;
+}
+
+.cartTotal{
+    width: 100%;
+    display: flex;
+    padding: 10px 0px;
+    justify-content: space-evenly;
+}
+
+.cartTotal h3, .cartTotal span{
+    font-size: 17.5px;
+    font-weight: 600;
+    width: 150px;
+
+}
+
+.cartTotal span{
+    text-align: left;
+}
+
+
+
 .headerThree{
     background-color: white;
     height: 40px;
@@ -364,11 +445,16 @@ h2{
 }
 
 .filters{
-    width: 500px;
-    height: 500px;
+    width: 1000px;
+    height: 1000px;
     background-color: #62152D;
 }
 
+
+.cardContainerWiness{
+    width: 100vw;
+    display: flex;
+}
 
 
 
