@@ -145,27 +145,23 @@ btnCart.addEventListener('click', () => {
 
 const rowProduct = document.querySelector('.rowProduct');
 const cartProduct = document.querySelector('.cartProduct');
-const cardContainerWiness = document.querySelector('.cardContainerWiness')
+const cardContainerWines = document.querySelector('.cardContainerWines')
 let allProducts = []
 const Total = document.querySelector('.Total');
 const countProducts = document.querySelector('#countProductsCartShopping');
 const cartEmpty = document.querySelector('.cartEmpty');
 const cartTotal = document.querySelector('.cartTotal');
 
-cardContainerWiness.addEventListener('click', e => {
-	
-    if (e.target.classList.contains('add')){
+cardContainerWines.addEventListener('click', e => {
+	if (e.target.classList.contains('btnAddCart')) {
 		const product = e.target.parentElement;
 
 		const infoProduct = {
 			quantity: 1,
-			title: product.querySelector('.name').textContent,
-			price: product.querySelector('.price').textContent,
-
-           
-            
+			title: product.querySelector('.').textContent,
+			price: product.querySelector('p').textContent,
 		};
-        
-    }
-		
-});
+
+		console.log(infoProduct)
+	}
+})

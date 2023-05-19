@@ -28,40 +28,38 @@ header{
     height: 40px;
 }
 
-.headerTwo{
+.headerTwo, .headerThree{
     background-color: white;
-    height: 60px;
     padding: 0px 75px;
     border-bottom: var(--border);
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.headerTwo > div{
-    width: 250px;
+.headerTwo{
+    height: 60px;
+    justify-content: space-between;
 }
 
 .headerTwo .search{
+    width: 250px;
     padding: 5px 10px;
     border: 1px solid var(--grey);
 }
 
 .headerTwo h1{
-    color: black;
     font-size: 40px;
-}
-
-.headerTwo h1 a{
-    list-style: none !important;
+    color: black;
+    gap: 2.5px;
 }
 
 .headerTwo h1 i{
-    color: black;
     font-size: 35px;
+    color: black;
 }
 
 .headerTwo .icons{
+    width: 250px;
     text-align: right;
 }
 
@@ -77,18 +75,15 @@ header{
 
 .countCartShopping{
     position: absolute;
-    top: 70px;
-    right: 65px;
-
     background-color: var(--purple2);
     color: #fff;
     width: 25px;
     height: 25px;
-
+    top: 70px; right: 60px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
 }
 
 .countCartShopping span{
@@ -98,68 +93,88 @@ header{
 
 .containerCartProducts{
     position: absolute;
-    top: 140px;
-    right: 65px;
-
-    background-color: #fff;
+    background-color: white;
+    top:100; right:0;
     width: 400px;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
     z-index: 1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
-    border-radius: 10px;
 }
 
 .hidden-cart{
     display: none;
 }
 
+.cartProduct{
+    text-align: left;
+}
+
+.cartProduct .close{
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #d9d9d9;
+    color: var(--purple2);
+    text-align: left;
+}
+
 .infoCartProduct{
-    width: 100%;
-    display: flex;
-    padding: 15px 0px;
     border-bottom: var(--border);
-}
-
-.countCart, .PriceCart, .close{
-    font-size: 17.5px;
-    text-align: center;
-    width: 10%;
-}
-
-.titleCart{
-    font-size: 17.5px;
-    font-weight: 600;
-    text-align: left;
-    width: 70%;
-}
-
-.cartTotal{
-    width: 100%;
     display: flex;
-    padding: 10px 0px;
-    justify-content: space-evenly;
 }
 
-.cartTotal h3, .cartTotal span{
-    font-size: 17.5px;
-    font-weight: 600;
-    width: 150px;
-
+.infoCartProduct img{
+    width: 25px;
+    margin: 25px 50px;
 }
 
-.cartTotal span{
+.infoCartProduct .infoRow{
+    display: flex;
+}
+
+.infoCartProduct .info{
+    width: 200px;
+    margin: 25px 0px;
     text-align: left;
 }
+
+.infoCartProduct .delete{
+    background-color: #d9d9d9;
+}
+
+.infoCartProduct .delete i{
+    font-size: 25px;
+    color: var(--purple2);
+}
+
+.containerCartProducts .cartTotal{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerCartProducts .cartTotal h3, .containerCartProducts .cartTotal span{
+    font-size: 20px;
+}
+
+.cartEmpty{
+    text-align: center;
+}
+
+
+
+
+
 
 
 
 .headerThree{
-    background-color: white;
     height: 40px;
-    padding: 0px 75px;
-    box-shadow: var(--box-shadow); 
-    display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .headerThree nav ul{
@@ -169,9 +184,12 @@ header{
 }
 
 .headerThree > nav > ul > li > a{
-    list-style: none !important;
     font-size: 12.5px;
     padding: 0px 10px;
+}
+
+.headerThree > nav > ul > li > a:hover{
+    color: var(--purple2);
 }
 
 .home{
@@ -193,30 +211,43 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .iconsHome > div{
-    font-size: 12.5px;
-    width: 150px;
     display: flex;
-    justify-content: center;
+}
+
+.iconsHome > div {
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .iconsHome > div i{
     color: black;
     font-size: 25px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconsHome > div h2{
+    width: 125px;
 }
 
 .wines-tittleOne{
     margin-top: 25px;
 }
 
-h2{
+section > h2{
     font-size: 25px;
-    padding: 25px;
+    padding: 50px;
     text-align: center;
 }
 
@@ -381,8 +412,8 @@ h2{
 
 .cardContainerCountries{
     background-color: black;
-    padding: 25px 0px;
-    margin-top: 25px;
+    padding: 25px;
+    margin-top: 50px;
 }
 
 .cardContainerCountries i{
@@ -391,15 +422,21 @@ h2{
 }
 
 .cardContainerCountries .cardCountries{
-    width: 125px;
     border: 1px solid white;
-    padding: 15px;
     text-align: center;
+    display: flex;
+}
+
+.cardCountries img{
+    width: 37.5px;
+    height: 37.5px;
 }
 
 .cardContainerCountries .cardCountries h3{
     font-weight: 400;
     color: white;
+    padding: 10px 15px;
+    width: 62.5px;
 }
 
 .newslatter{
@@ -439,6 +476,7 @@ h2{
 
 .allWines{
     margin: 0px 75px;
+    padding-top: 140px;
     display: block;
     flex-direction: row;
     justify-content: space-between;
@@ -452,8 +490,9 @@ h2{
 
 
 .cardContainerWiness{
-    width: 100vw;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -478,6 +517,8 @@ h2{
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer .links div{
@@ -508,6 +549,10 @@ h2{
     border-radius: 50%;
 }
 
+.footer .icons-rrss button:hover{
+    background-color: var(--purple1);
+}
+
 .footer .icons-rrss i{
     color: white;
     font-size: 25px;
@@ -520,4 +565,66 @@ h2{
     background-color: #111111;
     padding: 5px;
     text-align: center;
+}
+
+
+@media (max-width:991px){
+
+    .headerOne, .headerTwo{
+        padding: 0px 25px;
+
+    }
+
+    .cardContainerWines, .cardContainerTipesOfWines, .cardContainerCountries{
+        margin: 0px 25px;
+    }
+
+    .footer{
+        padding: 25px;
+    }
+
+    .cardContainerTipesOfWines{
+        justify-content: space-evenly;
+    }
+
+    .headerTwo h1{
+        font-size: 37.5px;
+    }
+
+    .headerTwo h1 i,.headerTwo .icons i{
+        font-size: 30px;
+    }
+
+    .headerTwo .icons{
+        width: 85px;
+    }
+
+    .search{
+        display: none;
+    }
+
+    .headerThree{
+        height: 112.5px;
+    }
+
+    .headerThree nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .countCartShopping{
+        top: 70px;
+        right: 12.5px;
+    }
+
+    .iconsHome{
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .iconsHome i, .iconsHome h2{
+        font-size: 12.5px;
+    }
+
+    
 }
