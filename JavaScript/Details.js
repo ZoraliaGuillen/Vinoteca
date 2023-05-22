@@ -15,7 +15,7 @@ getData()
 
 function imprimir() {
 
-    let id = location.search.split("?id=").filter(Number)
+    let id = location.search.split("?=id=").filter(Number)
     let selectId = id[0]
     let Detalles = []
 
