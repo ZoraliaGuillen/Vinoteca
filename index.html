@@ -19,12 +19,11 @@
 <body>
     <header>
         <section class="headerOne">
-
         </section>
         <section class="headerTwo">
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Busca aquí...">
+                <input id="input" type="text" placeholder="Busca aquí...">
             </div>
             <h1><a href="../index.html"></a><i class="fa-solid fa-wine-glass"></i> VINOTECA.</a></h1>
             <div class="icons">
@@ -63,12 +62,12 @@
         <section class="headerThree">
             <nav>
                 <ul id="navVinos">
+                    <li class="navLink"><a href="./index.html#index" id="index">HOME</a></li>
                     <li class="navLink"><a href="./index.html#vinos" id="vinos">VINOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosTintos" id="vinosTintos">VINOS TINTOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosBlancos" id="vinosBlancos">VINOS BLANCOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosRosados" id="vinosRosados">VINOS ROSADOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosEspumosos" id="vinosEspumosos">VINOS ESPUMOSOS</a>
-                    </li>
                     <li class="navLink"><a href="./index.html#contacto" id="contacto">CONTACTO</a></li>
                 </ul>
             </nav>
@@ -166,25 +165,25 @@
             <h2>VINOS EXCLUSIVOS</h2>
             <div class="cardContainerTipesOfWines" id="categoriaDos">
                 <div class="cardTipesOfWines">
-                    <img src="./recursos/Images/VinoTinto.png" alt="">
+                    <img src="./recursos/Images/VinoTinto.png" alt="VinosTintos">
                     <div class="text">
                         <h3><a href="">VINOS TINTOS</a></h3>
                     </div>
                 </div>
                 <div class="cardTipesOfWines">
-                    <img src="./recursos/Images/VinoBlanco.png" alt="">
+                    <img src="./recursos/Images/VinoBlanco.png" alt="VinosBlancos">
                     <div class="text">
                         <h3><a href="">VINOS BLANCOS</a></h3>
                     </div>
                 </div>
                 <div class="cardTipesOfWines">
-                    <img src="./recursos/Images/VinoRosado.png" alt="">
+                    <img src="./recursos/Images/VinoRosado.png" alt="VinosRosados">
                     <div class="text">
                         <h3><a href="">VINOS ROSADOS</a></h3>
                     </div>
                 </div>
                 <div class="cardTipesOfWines">
-                    <img src="./recursos/Images/VinoEspumoso.png" alt="">
+                    <img src="./recursos/Images/VinoEspumoso.png" alt="VinosEspumosos">
                     <div class="text">
                         <h3><a href="">VINOS ESPUMOSOS</a></h3>
                     </div>
@@ -195,39 +194,39 @@
             <div class="cardContainerCountries">
                 <div class="cardCountries">
                     <h3>ARG</h3>
-                    <img src="./recursos/Images/Argentina.png" alt="">
+                    <img src="./recursos/Images/Argentina.png" alt="Argentina">
                 </div>
                 <div class="cardCountries">
                     <h3>AUS</h3>
-                    <img src="./recursos/Images/Australia.png" alt="">
+                    <img src="./recursos/Images/Australia.png" alt="Australia">
                 </div>
                 <div class="cardCountries">
                     <h3>CHI</h3>
-                    <img src="./recursos/Images/Chile.png" alt="">
+                    <img src="./recursos/Images/Chile.png" alt="Chile">
                 </div>
                 <div class="cardCountries">
                     <h3>ESP</h3>
-                    <img src="./recursos/Images/España.png" alt="">
+                    <img src="./recursos/Images/España.png" alt="España">
                 </div>
                 <div class="cardCountries">
                     <h3>EUA</h3>
-                    <img src="./recursos/Images/EstadosUnidos.png" alt="">
+                    <img src="./recursos/Images/EstadosUnidos.png" alt="EstadosUnidos">
                 </div>
                 <div class="cardCountries">
                     <h3>FRA</h3>
-                    <img src="./recursos/Images/Francia.png" alt="">
+                    <img src="./recursos/Images/Francia.png" alt="Francia">
                 </div>
                 <div class="cardCountries">
                     <h3>ITA</h3>
-                    <img src="./recursos/Images/Italia.png" alt="">
+                    <img src="./recursos/Images/Italia.png" alt="Italia">
                 </div>
                 <div class="cardCountries">
                     <h3>MEX</h3>
-                    <img src="./recursos/Images/Mexico.png" alt="">
+                    <img src="./recursos/Images/Mexico.png" alt="Mexico">
                 </div>
                 <div class="cardCountries">
                     <h3>NZL</h3>
-                    <img src="./recursos/Images/NuevaZelanda.png" alt="">
+                    <img src="./recursos/Images/NuevaZelanda.png" alt="NuevaZelanda">
                 </div>
             </div>
         </section>
@@ -308,14 +307,93 @@
             <input type="email" name="" id="" placeholder="Ingresa tu email..">
             <button>Suscribite</button>
         </section>
+
+    
         <section class="allWines" id="allWines">
-            <div class="filters">
+            
+            
+             <div class="filters"> 
+
+                <h3><b>FILTRADOS</b></h3>
+
+                <button class="acordion">PAISES</button>
+                <div class="panel">
+                      
+                      <label><input type="checkbox" value="Argentina">Argentina</label>
+                     
+                      <label><input type="checkbox" value="Australia">Australia</label>
+                     
+                      <label><input type="checkbox" value="Chile">Chile</label>
+                      
+                      <label><input type="checkbox" value="España">España</label>
+                    
+                      <label><input type="checkbox" value="Estados Unidos">Estados Unidos</label>
+                     
+                      <label><input type="checkbox" value="Francia">Francia</label>
+              
+                      <label><input type="checkbox" value="Italia">Italia</label>
+                     
+                      <label><input type="checkbox" value="Mexico">Mexico</label>
+
+                      <label><input type="checkbox" value="Nueva Zelanda">Nueva Zelanda</label>
+                  
+                    </div>
+
+
+                    <button class="acordion">TIPOS DE VINOS</button>
+                    <div class="panel">
+                          
+                          <label><input type="checkbox" value="Argentina">Tintos</label>
+                         
+                          <label><input type="checkbox" value="Australia">Blancos</label>
+                         
+                          <label><input type="checkbox" value="Chile">Rosados</label>
+                          
+                          <label><input type="checkbox" value="España">Espumantes</label>
+                    
+                        </div>
+
+
+                        <button class="acordion">TIPOS DE UVAS</button>
+                        <div class="panel">
+                              
+                              <label><input type="checkbox" value="Argentina">Argentina</label>
+                             
+                              <label><input type="checkbox" value="Australia">Australia</label>
+                             
+                              <label><input type="checkbox" value="Chile">Chile</label>
+                              
+                              <label><input type="checkbox" value="España">España</label>
+                            
+                              <label><input type="checkbox" value="Estados Unidos">Estados Unidos</label>
+                             
+                              <label><input type="checkbox" value="Francia">Francia</label>
+                      
+                              <label><input type="checkbox" value="Italia">Italia</label>
+                             
+                              <label><input type="checkbox" value="Mexico">Mexico</label>
+        
+                              <label><input type="checkbox" value="Nueva Zelanda">Nueva Zelanda</label>
+                          
+                            </div>
+
+
 
             </div>
-            <div class="cardContainerWiness">
 
+            
+       </section>
+
+       <!--checkboxs-->
+
+       <!-- <label><input type="checkbox" value="Vinos Tintos">VINOS TINTOS</label>
+
+            <div>
+                    <!--cards-->
 
             </div>
+
+    
         </section>
     </main>
     <footer>

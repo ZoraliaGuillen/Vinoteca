@@ -1,43 +1,50 @@
-let vinos;
+let vinosDetalles;
 
 async function getData() {
     let datosApi
     await fetch("/recursos/wines.JSON")
         .then(response => response.json())
-        .then(json => datosApi = json)
+        .then(json => datosApi=json)
 
-        vinos = datosApi.tipesOfWines;
+        vinosDetalles = datosApi.tipesOfWines;
 
-        imprimir()
+        console.log(vinosDetalles)
+
+        imprimirDetalles()
+
 }
 
 getData()
 
-function imprimir() {
+function imprimirDetalles() {
 
-    let id = location.search.split("?=id=").filter(Number)
+    let id = location.search.split("?id=").filter(Number)
     let selectId = id[0]
     let Detalles = []
 
-    for (var i = 0; i < vinos.length; i++) {
+    for (var i = 0; i < vinosDetalles.length; i++) {
 
-        if (vinos[i].id==selectId) {
-            Detalles.push(vinos[i])
+        if (vinosDetalles[i].Id==selectId) {
+            detalles.push(vinosDetalles[i])
         }
     }
 
+    console.log(detalles)
+
     var tarjetasVinosDetalles = document.getElementById("allWinesDetails")
-    tarjetasVinosDetalles.innerHTML = `<div class="cardContainerDetails">
+    tarjetasVinosDetalles.innerHTML = 
+
+    `<div class="cardContainerDetails">
     <div class="imageCardDetails">
         <i class="fa-solid fa-heart"></i>
-        <img src="../recursos/Images/${Detalles[0].Image}.png" alt="" class="wine">
-        <img src="../recursos/Images/${Detalles[0].Bandera}.png" alt="" class="flag">
+        <img src=".../recursos/Images/${detalles[0].Image}" alt="${detalles[0].Nombre}" class="wine">
+        <img src=".../recursos/Images/${detalles[0].Bandera}" alt="Bandera de ${detalles[0].Bandera}" class="flag">
     </div>
     <div class="cardDetails">
-        <h3 class="name">${Detalles[0].Nombre}</h3>
-        <p class="winery">${Detalles[0].Bodega}</p>
+        <h3 class="name">${detalles[0].Nombre}</h3>
+        <p class="winery">${detalles[0].Bodega}</p>
         <strong>
-            <p class="price">${Detalles[0].Precio}0$</p>
+            <p class="price">${detalles[0].Precio}0$</p>
         </strong>
         <div class="buttonsDetail">
             <div class="quantity">
@@ -51,35 +58,35 @@ function imprimir() {
             <h3>Detalles</h3>
             <div>
                 <h4>Nombre :</h4>
-                <p>${Detalles[0].Nombre}</p>
+                <p>${detalles[0].Nombre}</p>
             </div>
             <div>
                 <h4>Bodega :</h4>
-                <p>${Detalles[0].Bodega}</p>
+                <p>${detalles[0].Bodega}</p>
             </div>
             <div>
                 <h4>País :</h4>
-                <p>${Detalles[0].Pais}</p>
+                <p>${detalles[0].Pais}</p>
             </div>
             <div>
                 <h4>Región :</h4>
-                <p>${Detalles[0].Region}</p>
+                <p>${detalles[0].Region}</p>
             </div>
             <div>
                 <h4>Tipo de Vino :</h4>
-                <p>${Detalles[0].TipoDeVino}</p>
+                <p>${detalles[0].TipoDeVino}</p>
             </div>
             <div>
                 <h4>Uva :</h4>
-                <p>${Detalles[0].Uva}</p>
+                <p>${detalles[0].Uva}</p>
             </div>
             <div>
                 <h4>Cosecha :</h4>
-                <p>${Detalles[0].Cosecha}</p>
+                <p>${detalles[0].Cosecha}</p>
             </div>
             <div>
                 <h4>Puntuación :</h4>
-                <p>${Detalles[0].Puntuacion}</p>
+                <p>${detalles[0].Puntuacion}</p>
             </div>
         </div>
     </div>
