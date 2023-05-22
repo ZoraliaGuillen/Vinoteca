@@ -1,6 +1,6 @@
 "tipesOfWines" = [
     {
-        "Id": 1,
+        "id": 1,
         "Image" : 1,
         "Nombre": "Double Diamond",
         "Pais": "Estados Unidos",
@@ -14,7 +14,7 @@
         "Precio" : 81.93,
     },
     {
-        "Id": 2,
+        "id": 2,
         "Image" : 2,
         "Nombre":"Brunello di Montalcino",
         "Pais" : "Italia",
@@ -28,7 +28,7 @@
         "Precio": 125.00,
     },
     {
-        "Id": 3,
+        "id": 3,
         "Image" : 3,
         "Nombre":"Belle Cousine (Hyde Vineyard)",
         "Pais": "Estados Unidos",
@@ -42,7 +42,7 @@
         "Precio": 77.36,
     },
     {
-        "Id": 4,
+        "id": 4,
         "Image" : 4,
         "Nombre": "Saint-Julien (Grand Cru Classé)",
         "Pais": "Francia",
@@ -56,7 +56,7 @@
         "Precio": 510.35,
     },
     {
-        "Id": 5,
+        "id": 5,
         "Image" : 5,
         "Nombre": "Tignanello",
         "Pais": "Italia",
@@ -70,7 +70,7 @@
         "Precio": 128.30,
     },
     {
-        "Id": 6,
+        "id": 6,
         "Image" : 6,
         "Nombre": "The Estates Cabernet Sauvignon",
         "Pais": "Estados Unidos",
@@ -84,7 +84,7 @@
         "Precio": 73.60,
     },
     {
-        "Id":7,
+        "id":7,
         "Image" : 7,
         "Nombre": "Châteauneuf-du-Pape",
         "Pais": "Francia",
@@ -98,7 +98,7 @@
         "Precio": 110.16,
     },
     {
-        "Id": 8,
+        "id": 8,
         "Image" : 8,
         "Nombre": "Saffredi",
         "Pais": "Italia",
@@ -112,7 +112,7 @@
         "Precio": 101.23,
     },
     {
-        "Id": 9,
+        "id": 9,
         "Image" : 9,
         "Nombre": "Cabernet Sauvignon",
         "Pais": "Estados Unidos",
@@ -126,7 +126,7 @@
         "Precio": 182.14,
     },
     {
-        "Id": 10,
+        "id": 10,
         "Image" : 10,
         "Nombre": "Champagne Cristal",
         "Pais": "Francia",
@@ -140,7 +140,7 @@
         "Precio": 280.00,
     },
     {
-        "Id": 11,
+        "id": 11,
         "Image" : 11,
         "Nombre": "Saint-Émilion (Premier Grand Cru Classé)",
         "Pais": "Francia",
@@ -154,7 +154,7 @@
         "Precio": 63.40,
     },
     {
-        "Id": 12,
+        "id": 12,
         "Image" : 12,
         "Nombre": "Bolgheri Superiore",
         "Pais": "Italia",
@@ -168,7 +168,7 @@
         "Precio": 45.00,
     },
     {
-        "Id": 13,
+        "id": 13,
         "Image" : 13,
         "Nombre": "Sauvignon Blanc",
         "Pais": "Nueva Zelanda",
@@ -182,7 +182,7 @@
         "Precio": 19.45,
     },
     {
-        "Id": 14,
+        "id": 14,
         "Image" : 14,
         "Nombre": "Cabernet Sauvignon",
         "Pais": "Estados Unidos",
@@ -196,7 +196,7 @@
         "Precio": 111.95,
     },
     {
-        "Id": 15,
+        "id": 15,
         "Image" : 15,
         "Nombre": "Chardonnay",
         "Pais": "Estados Unidos",
@@ -210,7 +210,7 @@
         "Precio": 41.50,
     },
     {
-        "Id": 16,
+        "id": 16,
         "Image" : 16,
         "Nombre": "Beautiful Earth White",
         "Pais": "Estados Unidos",
@@ -224,7 +224,7 @@
         "Precio": 38.44,
     },
     {
-        "Id": 17,
+        "id": 17,
         "Image" : 17,
         "Nombre": "Amancaya Gran Reserva Malbec - Cabernet Sauvignon",
         "Pais": "Argentina",
@@ -238,7 +238,7 @@
         "Precio": 21.04,
     },
     {
-        "Id": 18,
+        "id": 18,
         "Image" : 18,
         "Nombre": "Pinot Noir",
         "Pais": "Australia",
@@ -252,7 +252,7 @@
         "Precio": 26.38,
     },
     {
-        "Id": 19,
+        "id": 19,
         "Image" : 19,
         "Nombre": "Blanc De Blancs Brut",
         "Pais": "Estados Unidos",
@@ -266,7 +266,7 @@
         "Precio": 33.68,
     },
     {
-        "Id": 20,
+        "id": 20,
         "Image" : 20,
         "Nombre": "Burn Cottage Vineyard Pinot Noir",
         "Pais": "Nueva Zelanda",
@@ -280,7 +280,7 @@
         "Precio": 50.43,
     },
     {
-        "Id":21,
+        "id":21,
         "Image" : 21,
         "Nombre": "Cabernet Sauvignon",
         "Pais": "Chile",
@@ -294,7 +294,7 @@
         "Precio": 19.06,
     },
     {
-        "Id": 22,
+        "id": 22,
         "Image" : 22,
         "Nombre": "Chianti Classico Riserva",
         "Pais": "Italia",
@@ -308,7 +308,7 @@
         "Precio": 21.17,
     },
     {
-        "Id": 23,
+        "id": 23,
         "Image" : 23,
         "Nombre": "Remolinos Vineyard Malbec",
         "Pais": "Argentina",
@@ -322,7 +322,7 @@
         "Precio": 18.65,
     },
     {
-        "Id": 24,
+        "id": 24,
         "Image" : 24,
         "Nombre": "Côtes de Provence",
         "Pais": "Francia",
@@ -336,7 +336,7 @@
         "Precio": 9.95,
     },
     {
-        "Id": 25,
+        "id": 25,
         "Image" : 25,
         "Nombre": "Ru Rosa de Uva",
         "Pais": "Mexico",
@@ -350,7 +350,7 @@
         "Precio": 16.34,
     },
     {
-        "Id":26,
+        "id":26,
         "Image" : 26,
         "Nombre": "Pinot Noir",
         "Pais": "Estados Unidos",
@@ -364,7 +364,7 @@
         "Precio": 91.01,
     },
     {
-        "Id": 27,
+        "id": 27,
         "Image" : 27,
         "Nombre": "Mother's Milk Shiraz",
         "Pais": "Australia",
@@ -378,7 +378,7 @@
         "Precio": 17.63,
     },
     {
-        "Id": 28,
+        "id": 28,
         "Image" : 28,
         "Nombre": "Sauvignon Blanc",
         "Pais":  "Nueva Zelanda",
@@ -392,7 +392,7 @@
         "Precio": 13.38,
     },
     {
-        "Id": 29,
+        "id": 29,
         "Image" : 29,
         "Nombre": "Alma De Cattleya Sauvignon Blanc",
         "Pais": "Estados Unidos",
@@ -406,7 +406,7 @@
         "Precio": 18.18,
     },
     {
-        "Id": 30,
+        "id": 30,
         "Image" : 30,
         "Nombre": "Blanc De Blancs Brut",
         "Pais": "España",

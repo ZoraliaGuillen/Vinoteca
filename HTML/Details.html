@@ -9,7 +9,7 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="../Images/copaDeVino - copia.PNG" type="image/x-icon">
+    <link rel="shortcut icon" href="../recursos/Images/copaDeVino - copia.PNG" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/Index.css">
@@ -26,7 +26,7 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Busca aquí...">
             </div>
-                <h1><a href="../index.html"></a><i class="fa-solid fa-wine-glass"></i> VINOTECA.</a></h1>
+            <a href="../index.html?page=index"><h1><i class="fa-solid fa-wine-glass"></i>VINOTECA</h1></a>
             <div class="icons">
                 <i class="fa-solid fa-user"></i>
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -35,12 +35,13 @@
         <section class="headerThree">
             <nav>
                 <ul>
-                    <li class="navLink"><a href="../index.html#vinos" id="vinos">VINOS</a></li>
-                    <li class="navLink"><a href="../index.html#vinosTintos" id="vinosTintos">VINOS TINTOS</a></li>
-                    <li class="navLink"><a href="../index.html#vinosBlancos" id="vinosBlancos">VINOS BLANCOS</a></li>
-                    <li class="navLink"><a href="../index.html#vinosRosados" id="vinosRosados">VINOS ROSADOS</a></li>
-                    <li class="navLink"><a href="../index.html#vinosEspumosos" id="vinosEspumosos">VINOS ESPUMOSOS</a></li>
-                    <li class="navLink"><a href="../index.html#contacto" id="contacto">CONTACTO</a></li>
+                    <li class="navLink"><a href="../index.html?page=index" id="index">HOME</a></li>
+                    <li class="navLink"><a href="../index.html?page=vinos" id="vinos">VINOS</a></li>
+                    <li class="navLink"><a href="../index.html?page=vinosTintos" id="vinosTintos">VINOS TINTOS</a></li>
+                    <li class="navLink"><a href="../index.html?page=vinosBlancos" id="vinosBlancos">VINOS BLANCOS</a></li>
+                    <li class="navLink"><a href="../index.html?page=vinosRosados" id="vinosRosados">VINOS ROSADOS</a></li>
+                    <li class="navLink"><a href="../index.html?page=vinosEspumosos" id="vinosEspumosos">VINOS ESPUMOSOS</a></li>
+                    <li class="navLink"><a href="../index.html?page=contacto" id="contacto">CONTACTO</a></li>
                 </ul>
             </nav>
         </section>
@@ -85,7 +86,11 @@
             <h4>COPYRIGTH @ 2023 by</h3>
         </section>
     </footer>
+    
     <script src="../JavaScript/Details.js"></script>
+    <script src="../JavaScript/index.js"></script>
+  
+
 </body>
 
 </html>
