@@ -4,6 +4,8 @@ let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
 let filtrosCategoriaDos = document.getElementsByClassName("cardTipesOfWines");
 let filtrosBanderas = document.getElementsByClassName("cardCountries");
+let filtroLimpio=[]
+var input = document.getElementById("input");
 
 async function getData() {
     let data;
@@ -42,6 +44,8 @@ async function imprimir(id) {
             allWines.style.display = "flex"
             //checkcategories.style.display="flex"
             pintarHTML(vinos)
+            filtrosSearch(vinos)
+
             break;
 
         case "vinosTintos":
@@ -56,6 +60,7 @@ async function imprimir(id) {
             allWines.style.display = "flex"
             // checkcategories.style.display="flex"
             pintarHTML(vinosTintos)
+            filtrosSearch(vinosTintos)
             break;
 
         case "vinosBlancos":
@@ -67,8 +72,9 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            // checkcategories.style.display="flex"
+            // filter.style.display="flex"
             pintarHTML(vinosBlancos)
+            filtrosSearch(vinosBlancos)
             break;
 
         case "vinosRosados":
@@ -82,6 +88,7 @@ async function imprimir(id) {
             allWines.style.display = "flex"
             // checkcategories.style.display="flex"
             pintarHTML(vinosRosados)
+            filtrosSearch(vinosRosados)
             break;
 
         case "vinosEspumosos":
@@ -95,6 +102,7 @@ async function imprimir(id) {
             allWines.style.display = "flex"
             // checkcategories.style.display="flex"
             pintarHTML(vinosEspumosos)
+            filtrosSearch(vinosEspumosos)
             break;
 
         case "contacto":
@@ -115,7 +123,7 @@ async function imprimir(id) {
     }
 }
 
-async function pintarHTML(array) {
+function pintarHTML(array) {
 
     let html = "";
     for (var i = 0; i < array.length; i++) {
@@ -199,47 +207,164 @@ function rutas() {
 
 ///
 
-const btnCart = document.querySelector('.fa-cart-shopping');
-const containerCartProducts = document.querySelector(".containerCartProducts")
+// const btnCart = document.querySelector('.fa-cart-shopping');
+// const containerCartProducts = document.querySelector(".containerCartProducts")
 
-btnCart.addEventListener('click', () => {
-    containerCartProducts.classList.toggle('hidden-cart');
-});
+// btnCart.addEventListener('click', () => {
+//     containerCartProducts.classList.toggle('hidden-cart');
+// });
 
-const rowProduct = document.querySelector('.rowProduct');
-const cartProduct = document.querySelector('.cartProduct');
-const cardContainerWines = document.querySelector('.cardContainerWines')
-let allProducts = []
-const Total = document.querySelector('.Total');
-const countProducts = document.querySelector('#countProductsCartShopping');
-const cartEmpty = document.querySelector('.cartEmpty');
-const cartTotal = document.querySelector('.cartTotal');
+// const rowProduct = document.querySelector('.rowProduct');
+// const cartProduct = document.querySelector('.cartProduct');
+// const cardContainerWines = document.querySelector('.cardContainerWines')
+// let allProducts = []
+// const Total = document.querySelector('.Total');
+// const countProducts = document.querySelector('#countProductsCartShopping');
+// const cartEmpty = document.querySelector('.cartEmpty');
+// const cartTotal = document.querySelector('.cartTotal');
 
-cardContainerWines.addEventListener('click', e => {
-    if (e.target.classList.contains('btnAddCart')) {
-        const product = e.target.parentElement;
+// cardContainerWines.addEventListener('click', e => {
+//     if (e.target.classList.contains('btnAddCart')) {
+//         const product = e.target.parentElement;
 
-        const infoProduct = {
-            quantity: 1,
-            title: product.querySelector('.').textContent,
-            price: product.querySelector('p').textContent,
-        };
+//         const infoProduct = {
+//             quantity: 1,
+//             title: product.querySelector('.').textContent,
+//             price: product.querySelector('p').textContent,
+//         };
 
-        console.log(infoProduct)
-    }
-})
+//         console.log(infoProduct)
+//     }
+// })
+
+
+//CODIGO DE CARRITO
+
+//variables
+// let allContainerCart = document.querySelector('.products');
+// let containerBuyCart = document.querySelector('.card-items');
+// let priceTotal = document.querySelector('.price-total')
+// let amountProduct = document.querySelector('.count-product');
+
+
+// let buyThings = [];
+// let totalCard = 0;
+// let countProduct = 0;
+
+// //functions
+// loadEventListenrs();
+// function loadEventListenrs(){
+//     allContainerCart.addEventListener('click', addProduct);
+
+//     containerBuyCart.addEventListener('click', deleteProduct);
+// }
+
+// function addProduct(e){
+//     e.preventDefault();
+//     if (e.target.classList.contains('btn-add-cart')) {
+//         const selectProduct = e.target.parentElement; 
+//         readTheContent(selectProduct);
+//     }
+// }
+
+// function deleteProduct(e) {
+//     if (e.target.classList.contains('delete-product')) {
+//         const deleteId = e.target.getAttribute('data-id');
+
+//         buyThings.forEach(value => {
+//             if (value.id == deleteId) {
+//                 let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
+//                 totalCard =  totalCard - priceReduce;
+//                 totalCard = totalCard.toFixed(2);
+//             }
+//         });
+//         buyThings = buyThings.filter(product => product.id !== deleteId);
+        
+//         countProduct--;
+//     }
+//     //FIX: El contador se quedaba con "1" aunque ubiera 0 productos
+//     if (buyThings.length === 0) {
+//         priceTotal.innerHTML = 0;
+//         amountProduct.innerHTML = 0;
+//     }
+//     loadHtml();
+// }
+
+// function readTheContent(product){
+//     const infoProduct = {
+//         image: product.querySelector('div img').src,
+//         title: product.querySelector('.title').textContent,
+//         price: product.querySelector('div p span').textContent,
+//         id: product.querySelector('a').getAttribute('data-id'),
+//         amount: 1
+//     }
+
+//     totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
+//     totalCard = totalCard.toFixed(2);
+
+//     const exist = buyThings.some(product => product.id === infoProduct.id);
+//     if (exist) {
+//         const pro = buyThings.map(product => {
+//             if (product.id === infoProduct.id) {
+//                 product.amount++;
+//                 return product;
+//             } else {
+//                 return product
+//             }
+//         });
+//         buyThings = [...pro];
+//     } else {
+//         buyThings = [...buyThings, infoProduct]
+//         countProduct++;
+//     }
+//     loadHtml();
+//     //console.log(infoProduct);
+// }
+
+// function loadHtml(){
+//     clearHtml();
+//     buyThings.forEach(product => {
+//         const {image, title, price, amount, id} = product;
+//         const row = document.createElement('div');
+//         row.classList.add('item');
+//         row.innerHTML = `
+//             <img src="${image}" alt="">
+//             <div class="item-content">
+//                 <h5>${title}</h5>
+//                 <h5 class="cart-price">${price}$</h5>
+//                 <h6>Amount: ${amount}</h6>
+//             </div>
+//             <span class="delete-product" data-id="${id}">X</span>
+//         `;
+
+//         containerBuyCart.appendChild(row);
+
+//         priceTotal.innerHTML = totalCard;
+
+//         amountProduct.innerHTML = countProduct;
+//     });
+// }
+//  function clearHtml(){
+//     containerBuyCart.innerHTML = '';
+//  }
 
 
 //FUNCION SEARCH
 
-var input = document.getElementById("input");
+function filtrosSearch(array){
 
-input.addEventListener("keyup", (vino) => {
-    (vino)
-    var filtroSearch = vino.target.value;
-    filtroLimpiado = filtroSearch.trim().toLowerCase();
+input.addEventListener("keyup",(vino)=> {captureSearch(vino)})
 
-})
+function captureSearch(vino){
+    var datoInput= vino.target.value;
+    let datoLimpio=datoInput.trim().toLowerCase();
+    console.log(datoLimpio)
+
+    var filtrado= vinos.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+    pintarHTML(filtrado)
+}
+}
+
 
 //CREACION DE CHECKBOX DINAMICAS
 
@@ -325,7 +450,6 @@ for (let i = 0; i < filtrosBanderas.length; i++) {
 
 function porBanderas(outerText) {
 
-
     switch (outerText) {
 
         case "ARG":
@@ -373,23 +497,24 @@ function porBanderas(outerText) {
             console.log(banderaNuevaZelanda)
 
     }
+
 }
 
 
 //FILTROS POR TIPOS DE UVAS
 
-console.log(vinos)
+// console.log(vinos)
 
-let tiposDeUvas=[];
-let uvas= vinos.forEach(element =>{
+// let tiposDeUvas=[];
+// let uvas= vinos.forEach(element =>{
 
-    tiposDeUvas.push({
-        dato: uvas.filter(vino=> vino.Uva===element)
-}
-)
-})
+//     tiposDeUvas.push({
+//         dato: uvas.filter(vino=> vino.Uva===element)
+// }
+// )
+// })
 
-console.log(tiposDeUvas)
+// console.log(tiposDeUvas)
 
 
 
