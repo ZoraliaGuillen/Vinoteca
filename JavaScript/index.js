@@ -1,6 +1,7 @@
 let vinos;
 let tarjetasVinos = document.getElementById("allWines");
 let navVinos = document.getElementsByClassName("navLink");
+var inputSearch = document.getElementById("input-search");
 let home = document.getElementById("home");
 let filtrosCategoriaDos = document.getElementsByClassName("cardTipesOfWines");
 let filtrosBanderas = document.getElementsByClassName("cardCountries");
@@ -33,6 +34,7 @@ async function imprimir(id) {
 
         case "vinos":
             console.log(vinos)
+            inputSearch.value = ""
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -40,11 +42,12 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            //checkcategories.style.display="flex"
+            // checkcategories.style.display="flex"
             pintarHTML(vinos)
             break;
 
         case "vinosTintos":
+            inputSearch.value = ""
             let vinosTintos = vinos.filter(vino => vino.TipoDeVino == "Tinto");
             console.log(vinosTintos)
             home.style.display = "none"
@@ -59,6 +62,7 @@ async function imprimir(id) {
             break;
 
         case "vinosBlancos":
+            inputSearch.value = ""
             let vinosBlancos = vinos.filter(vino => vino.TipoDeVino == "Blanco");
             home.style.display = "none"
             wines.style.display = "none"
@@ -72,6 +76,7 @@ async function imprimir(id) {
             break;
 
         case "vinosRosados":
+            inputSearch.value = ""
             let vinosRosados = vinos.filter(vino => vino.TipoDeVino == "Rosado");
             home.style.display = "none"
             wines.style.display = "none"
@@ -85,6 +90,7 @@ async function imprimir(id) {
             break;
 
         case "vinosEspumosos":
+            inputSearch.value = ""
             let vinosEspumosos = vinos.filter(vino => vino.TipoDeVino == "Espumoso");
             home.style.display = "none"
             wines.style.display = "none"
@@ -110,6 +116,7 @@ async function imprimir(id) {
             break;
 
         default:
+            inputSearch.value = ""
             allWines.style.display = "none"
         // checkcategories.style.display= "none"
     }
@@ -197,7 +204,7 @@ function rutas() {
 
 
 
-///
+
 
 const btnCart = document.querySelector('.fa-cart-shopping');
 const containerCartProducts = document.querySelector(".containerCartProducts")
@@ -208,7 +215,7 @@ btnCart.addEventListener('click', () => {
 
 const rowProduct = document.querySelector('.rowProduct');
 const cartProduct = document.querySelector('.cartProduct');
-const cardContainerWines = document.querySelector('.cardContainerWines')
+const cardContainerWines = document.querySelector('.cardContainerWiness')
 let allProducts = []
 const Total = document.querySelector('.Total');
 const countProducts = document.querySelector('#countProductsCartShopping');
@@ -221,27 +228,25 @@ cardContainerWines.addEventListener('click', e => {
 
         const infoProduct = {
             quantity: 1,
-            title: product.querySelector('.').textContent,
-            price: product.querySelector('p').textContent,
+            title: product.querySelector('.name').textContent,
+            price: product.querySelector('.price').textContent,
         };
 
-        console.log(infoProduct)
+        allProducts= [...allProducts, infoProduct]
     }
+    console.log(infoProduct)
 })
 
 
 //FUNCION SEARCH
 
-var input = document.getElementById("input");
 
-input.addEventListener("keyup", (vino) => {
-    (vino)
+inputSearch.addEventListener("keyup", function (vino) {    
     var filtroSearch = vino.target.value;
     filtroLimpiado = filtroSearch.trim().toLowerCase();
-
 })
 
-//CREACION DE CHECKBOX DINAMICAS
+// CREACION DE CHECKBOX DINAMICAS
 
 // function eventsCategories(array) {
 //     let categories = array.map(vino => vino.TipoDeVino)
@@ -378,18 +383,18 @@ function porBanderas(outerText) {
 
 //FILTROS POR TIPOS DE UVAS
 
-console.log(vinos)
+// console.log(vinos)
 
-let tiposDeUvas=[];
-let uvas= vinos.forEach(element =>{
+// let tiposDeUvas=[];
+// let uvas= vinos.forEach(element =>{
 
-    tiposDeUvas.push({
-        dato: uvas.filter(vino=> vino.Uva===element)
-}
-)
-})
+//     tiposDeUvas.push({
+//         dato: uvas.filter(vino=> vino.Uva===element)
+// }
+// )
+// })
 
-console.log(tiposDeUvas)
+// console.log(tiposDeUvas)
 
 
 

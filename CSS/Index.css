@@ -475,12 +475,14 @@ section > h2{
 
 
 .allWines{
+    background-color: #B3B3B3;
     margin: 0px 75px;
     padding-top: 140px;
-    display: block;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 25px;
 }
 
 
@@ -493,7 +495,7 @@ section > h2{
 .filters{
     position: relative;
     display:flex;
-    width: 100%;
+    width: 250px;
     height: 250px;
     background-color: #62152D;
  

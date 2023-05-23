@@ -340,7 +340,7 @@
         "Image" : 25,
         "Nombre": "Ru Rosa de Uva",
         "Pais": "Mexico",
-        "Banderas": "Mexico",
+        "Bandera": "Mexico",
         "Region": "Coahuila",
         "Bodega": "Bodegas del Viento",
         "TipoDeVino": "Rosado",

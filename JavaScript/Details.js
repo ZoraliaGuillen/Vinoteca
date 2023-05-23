@@ -29,7 +29,7 @@ function imprimirDetalles() {
         }
     }
 
-    console.log(detalles)
+    console.log(Detalles)
 
     var tarjetasVinosDetalles = document.getElementById("allWinesDetails")
     tarjetasVinosDetalles.innerHTML = 
