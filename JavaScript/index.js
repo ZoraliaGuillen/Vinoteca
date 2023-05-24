@@ -1,5 +1,5 @@
 let vinos;
-let tarjetasVinos = document.getElementById("allWines");
+let tarjetasVinos = document.getElementById("tarjetasVinos");
 let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
 let filtrosCategoriaDos = document.getElementsByClassName("cardTipesOfWines");
@@ -30,6 +30,7 @@ for (let i = 0; i < navVinos.length; i++) {
 }
 
 async function imprimir(id) {
+console.log("id imprimir", id)
 
     switch (id) {
 
@@ -45,7 +46,6 @@ async function imprimir(id) {
             //checkcategories.style.display="flex"
             pintarHTML(vinos)
             filtrosSearch(vinos)
-
             break;
 
         case "vinosTintos":
@@ -72,7 +72,6 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            // filter.style.display="flex"
             pintarHTML(vinosBlancos)
             filtrosSearch(vinosBlancos)
             break;
@@ -113,13 +112,21 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "none"
-            checkcategories.style.display = "none"
+            // checkcategories.style.display = "none"
             pintarHTML(contacto);
             break;
 
         default:
+            home.style.display = "flex"
+            wines.style.display = "flex"
+            tipesOfWines.style.display = "flex"
+            countries.style.display = "flex"
+            recommendedWines.style.display = "flex"
+            newslatter.style.display = "flex"
             allWines.style.display = "none"
+            // checkcategories.style.display = "none"
         // checkcategories.style.display= "none"
+        break;
     }
 }
 
@@ -129,7 +136,6 @@ function pintarHTML(array) {
     for (var i = 0; i < array.length; i++) {
         html +=
             `
-        <div class="cardContainerWiness">
             <div class="cardWines">
                 <i class="fa-solid fa-heart"></i>
                 <img src="./recursos/Images/${array[i].Image}.png" alt="${array[i].Nombre}">
@@ -147,7 +153,6 @@ function pintarHTML(array) {
                     <button class="add"><a href="">AGREGAR</a></button>
                 </div>
             </div>
-        <div>
         `
     }
 
@@ -352,19 +357,26 @@ function rutas() {
 //FUNCION SEARCH
 
 function filtrosSearch(array){
+    input.addEventListener("keyup",(vino)=> {captureSearch(vino)})
 
-input.addEventListener("keyup",(vino)=> {captureSearch(vino)})
-
-function captureSearch(vino){
+    function captureSearch(vino){
+   
     var datoInput= vino.target.value;
     let datoLimpio=datoInput.trim().toLowerCase();
     console.log(datoLimpio)
 
-    var filtrado= vinos.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
-    pintarHTML(filtrado)
-}
-}
+    var filtrado= array.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
 
+    if(filtrado!=""){
+        pintarHTML(filtrado)
+    }
+
+    else{
+        tarjetasVinos.innerHTML = `<h1 class="mensaje" >No se encontraron eventos para tu busqueda </h1>`
+   
+}
+}
+}
 
 //CREACION DE CHECKBOX DINAMICAS
 
@@ -387,31 +399,31 @@ function captureSearch(vino){
 
 // FUNCION DE FILTRADO CHECKBOX
 
-function checkboxListener() {
+// function checkboxListener() {
 
-    var checkbox = document.querySelectorAll('input[type=checkbox]');
-
-
-    for (var i = 0; i < checkbox.length; i++) {
-        checkbox[i].addEventListener("click", function () {
-
-            arrayCheckbox = [];
-
-            for (var i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].checked) {
-                    arrayCheckbox.push(checkbox[i].value)
-                }
-
-            }
-            //console.log(arrayCheckbox);
+//     var checkbox = document.querySelectorAll('input[type=checkbox]');
 
 
+//     for (var i = 0; i < checkbox.length; i++) {
+//         checkbox[i].addEventListener("click", function () {
 
-        })
+//             arrayCheckbox = [];
 
-    }
+//             for (var i = 0; i < checkbox.length; i++) {
+//                 if (checkbox[i].checked) {
+//                     arrayCheckbox.push(checkbox[i].value)
+//                 }
 
-}
+//             }
+//             //console.log(arrayCheckbox);
+
+
+
+//         })
+
+//     }
+
+// }
 
 
 //FILTROS CATEGORIAS II
@@ -419,15 +431,17 @@ function checkboxListener() {
 
 for (let i = 0; i < filtrosCategoriaDos.length; i++) {
     let elementDos = filtrosCategoriaDos[i];
-    elementDos.addEventListener("click", function (e) {
-        if (e.target.alt == "VinosTintos") {
+    console.log(elementDos)
+    elementDos.addEventListener("click", function (e){
+        
+        if (e.target.parentElement.id == "VinosTintos") {
             imprimir("vinosTintos")
         }
-        else if (e.target.alt == "VinosBlancos") {
+        else if (e.target.parentElement.id == "VinosBlancos") {
             imprimir("vinosBlancos")
         }
 
-        else if (e.target.alt == "VinosRosados") {
+        else if (e.target.parentElement.id == "VinosRosados") {
             imprimir("vinosRosados")
         }
 
@@ -443,8 +457,8 @@ for (let i = 0; i < filtrosCategoriaDos.length; i++) {
 for (let i = 0; i < filtrosBanderas.length; i++) {
     let banderas = filtrosBanderas[i];
     banderas.addEventListener("click", function (e) {
-        // console.log(e)
-         porBanderas(e.target.outerText)
+        console.log(e)
+         porBanderas(e.target.parentElement.id)
     })
 }
 
@@ -454,47 +468,110 @@ function porBanderas(outerText) {
 
         case "ARG":
             let banderaArgentina = vinos.filter(vino => vino.Bandera == "Argentina");
-            console.log(banderaArgentina)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaArgentina)
             break;
 
         case "AUS":
             let banderaAustralia = vinos.filter(vino => vino.Bandera == "Australia");
-            console.log(banderaAustralia)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaAustralia)
             break;
 
         case "CHI":
             let banderaChile = vinos.filter(vino => vino.Bandera == "Chile");
-            console.log(banderaChile)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaChile)
             break;
 
         case "ESP":
             let banderaEspaña = vinos.filter(vino => vino.Bandera == "España");
-            console.log(banderaEspaña)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaEspaña)
             break;
 
         case "EUA":
             let banderaEstadosUnidos = vinos.filter(vino => vino.Bandera == "EstadosUnidos");
-            console.log(banderaEstadosUnidos)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaEstadosUnidos)
             break;
 
         case "FRA":
             let banderaFrancia = vinos.filter(vino => vino.Bandera == "Francia");
-            console.log(banderaFrancia)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaFrancia)
             break;
 
         case "ITA":
             let banderaItalia = vinos.filter(vino => vino.Bandera == "Italia");
-            console.log(banderaItalia)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaItalia)
             break;
 
         case "MEX":
             let banderaMexico = vinos.filter(vino => vino.Bandera == "Mexico");
-            console.log(banderaMexico)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaMexico)
             break;
 
         default:
             let banderaNuevaZelanda = vinos.filter(vino => vino.Bandera == "NuevaZelanda");
-            console.log(banderaNuevaZelanda)
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaNuevaZelanda)
 
     }
 
@@ -515,7 +592,3 @@ function porBanderas(outerText) {
 // })
 
 // console.log(tiposDeUvas)
-
-
-
-
