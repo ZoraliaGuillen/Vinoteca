@@ -166,12 +166,6 @@ header{
 }
 
 
-
-
-
-
-
-
 .headerThree{
     height: 40px;
     justify-content: center;
@@ -503,6 +497,20 @@ section > h2{
 
 .filters label{
     color:#fff;
+}
+
+.mensaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+    color: red;
+    margin-top: 20px;
+}
+
+.wines{
+flex-direction: column;
 }
 
 

@@ -37,8 +37,8 @@ function imprimirDetalles() {
     `<div class="cardContainerDetails">
     <div class="imageCardDetails">
         <i class="fa-solid fa-heart"></i>
-        <img src=".../recursos/Images/${detalles[0].Image}" alt="${detalles[0].Nombre}" class="wine">
-        <img src=".../recursos/Images/${detalles[0].Bandera}" alt="Bandera de ${detalles[0].Bandera}" class="flag">
+        <img src="../recursos/Images/${detalles[0].Image}.png" alt="${detalles[0].Nombre}" class="wine">
+        <img src="../recursos/Images/${detalles[0].Bandera}.png" alt="Bandera de ${detalles[0].Bandera}" class="flag">
     </div>
     <div class="cardDetails">
         <h3 class="name">${detalles[0].Nombre}</h3>
