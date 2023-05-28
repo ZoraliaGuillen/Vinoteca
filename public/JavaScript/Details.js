@@ -18,12 +18,9 @@ getData()
 
 function imprimirDetalles() {
 
-    let id = location.search.split("?=id")
-    console.log(id)
-    
-    let selectId = id[1]
-    console.log(selectId)
-    let detalles = []
+    let id = location.search.split("?id=").filter(Number)
+    let selectId = id[0]
+    let Detalles = []
 
     for (var i = 0; i < vinosDetalles.length; i++) {
 
@@ -32,7 +29,7 @@ function imprimirDetalles() {
         }
     }
 
-    console.log(detalles)
+    console.log(Detalles)
 
     var tarjetasVinosDetalles = document.getElementById("allWinesDetails")
     tarjetasVinosDetalles.innerHTML = 
