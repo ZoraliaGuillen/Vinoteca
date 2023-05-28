@@ -2,7 +2,7 @@ let vinosDetalles;
 
 async function getData() {
     let datosApi
-    await fetch("/recursos/wines.JSON")
+    await fetch("../recursos/wines.JSON")
         .then(response => response.json())
         .then(json => datosApi=json)
 
