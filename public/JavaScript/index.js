@@ -4,13 +4,14 @@ let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
 let filtrosCategoriaDos = document.getElementsByClassName("cardTipesOfWines");
 let filtrosBanderas = document.getElementsByClassName("cardCountries");
+let filtrosUvas = document.getElementsByClassName("cardGrapes");
 var input = document.getElementById("input");
-var detalles= document.getElementsByClassName("ancla");
-let filtrado= [];
-var arrayAFiltrar=[]
+var detalles = document.getElementsByClassName("ancla");
+let filtrado = [];
+var arrayAFiltrar = []
 let arrayCheckbox = [];
-let datoLimpio= "";
-let datoInput="";
+let datoLimpio = "";
+let datoInput = "";
 
 
 
@@ -37,7 +38,7 @@ for (let i = 0; i < navVinos.length; i++) {
 }
 
 async function imprimir(id) {
-console.log("id imprimir", id)
+    console.log("id imprimir", id)
 
     switch (id) {
 
@@ -46,16 +47,16 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayCheckbox=[];
-            input.value= "";
+            arrayCheckbox = [];
+            input.value = "";
             pintarHTML(vinos)
-            filtrosSearch(vinos)
             checkboxListener(vinos)
-            arrayAFiltrar=vinos
+            arrayAFiltrar = vinos
             break;
 
         case "vinosTintos":
@@ -64,13 +65,14 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayAFiltrar=vinosTintos;
-            arrayCheckbox=[];
-            input.value= "";
+            arrayAFiltrar = vinosTintos;
+            arrayCheckbox = [];
+            input.value = "";
             pintarHTML(vinosTintos)
             checkboxListener(vinosTintos)
             break;
@@ -80,13 +82,14 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayAFiltrar=vinosBlancos;
-            arrayCheckbox=[];
-            input.value= "";
+            arrayAFiltrar = vinosBlancos;
+            arrayCheckbox = [];
+            input.value = "";
             pintarHTML(vinosBlancos)
             checkboxListener(vinosBlancos)
             break;
@@ -96,13 +99,14 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayAFiltrar=vinosRosados;
-            arrayCheckbox=[];
-            input.value= "";
+            arrayAFiltrar = vinosRosados;
+            arrayCheckbox = [];
+            input.value = "";
             pintarHTML(vinosRosados)
             checkboxListener(vinosRosados)
             break;
@@ -112,13 +116,14 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayAFiltrar=vinosEspumosos;
-            arrayCheckbox=[];
-            input.value= "";
+            arrayAFiltrar = vinosEspumosos;
+            arrayCheckbox = [];
+            input.value = "";
             pintarHTML(vinosEspumosos)
             checkboxListener(vinosEspumosos)
             break;
@@ -127,6 +132,7 @@ console.log("id imprimir", id)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -138,11 +144,12 @@ console.log("id imprimir", id)
             home.style.display = "flex"
             wines.style.display = "flex"
             tipesOfWines.style.display = "flex"
+            tipesOfGrapes.style.display = "flex"
             countries.style.display = "flex"
             recommendedWines.style.display = "flex"
             newslatter.style.display = "flex"
             allWines.style.display = "none"
-        break;
+            break;
     }
 }
 
@@ -312,7 +319,7 @@ function rutas() {
 //             }
 //         });
 //         buyThings = buyThings.filter(product => product.id !== deleteId);
-        
+
 //         countProduct--;
 //     }
 //     //FIX: El contador se quedaba con "1" aunque ubiera 0 productos
@@ -383,12 +390,12 @@ function rutas() {
 
 
 //FUNCION SEARCH
-    input.addEventListener("keyup", function (vino) {
+input.addEventListener("keyup", function (vino) {
 
-    var datoInput= vino.target.value;
-    let datoLimpio=datoInput.trim().toLowerCase();
+    var datoInput = vino.target.value;
+    let datoLimpio = datoInput.trim().toLowerCase();
     console.log(datoLimpio)
-    
+
     //  filtrado= arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
 
     // pintarHTML(filtrado)
@@ -420,65 +427,57 @@ function rutas() {
 
 function checkboxListener() {
 
-    var filtrosPaises= document.getElementById("checkboxPaises");
-    console.log(filtrosPaises)
+    var filtrosPaises = document.getElementById("eckboxListenerfilters");
     var checkboxPaises = filtrosPaises.querySelectorAll('input[type="checkbox"]');
 
-    console.log(checkboxPaises)
-
-    for(var i=0; i<checkboxPaises.length; i++){
-        checkboxPaises[i].addEventListener("click", function(){
-    
-            arrayCheckbox=[];
-    
-        for(var i=0; i<checkboxPaises.length; i++){
-            if (checkboxPaises[i].checked){
-                arrayCheckbox.push(checkboxPaises[i].value)
-            }  
-        }
-
-        console.log(arrayCheckbox)
-          
-        filtrosCombinados()
+    for (var i = 0; i < checkboxPaises.length; i++) {
+        checkboxPaises[i].addEventListener("click", function () {
+            arrayCheckbox = [];
+            for (var i = 0; i < checkboxPaises.length; i++) {
+                if (checkboxPaises[i].checked) {
+                    arrayCheckbox.push(checkboxPaises[i].value)
+                }
+            }
+            filtrosCombinados()
         })
-
-     }
-
+    }
 }
 
-function filtrosCombinados(){
-    
+function filtrosCombinados() {
+
     var vinosPorBanderas = [];
 
-    if(datoLimpio !== "" && arrayCheckbox.length > 0) {
-    arrayCheckbox.map(bandera => {vinosPorBanderas.push(...arrayAFiltrar.filter(vino => 
-        vino.Nombre.toLowerCase().includes(datoLimpio) && vino.Pais === bandera))
-})
-        
-     }
+    if (datoLimpio !== "" && arrayCheckbox.length > 0) {
+        arrayCheckbox.map(bandera => {
+            vinosPorBanderas.push(...arrayAFiltrar.filter(vino =>
+                vino.Nombre.toLowerCase().includes(datoLimpio) && vino.Pais === bandera))
+        })
 
-    else if(datoLimpio !== "" && arrayCheckbox.length == 0){
-        vinosPorBanderas= arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
     }
 
-     else if (datoLimpio === "" && arrayCheckbox.length > 0) {
+    else if (datoLimpio !== "" && arrayCheckbox.length == 0) {
+        vinosPorBanderas = arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+    }
 
-         arrayCheckbox.map(category =>
+    else if (datoLimpio === "" && arrayCheckbox.length > 0) {
+
+        arrayCheckbox.map(category =>
             vinosPorBanderas.push(...arrayAFiltrar.filter(vino => vino.Pais === category))
-            )} 
+        )
+    }
 
-     else {
+    else {
         // vinosPorBanderas = arrayAFiltrar
-       
-     }
 
-     console.log(vinosPorBanderas)
+    }
 
-    vinosPorBanderas.length > 0 ? 
-    pintarHTML(vinosPorBanderas) : 
-    tarjetasVinos.innerHTML = `<h1 class="ceroResult" >No se encontraron eventos para tu busqueda </h1>`
+    console.log(vinosPorBanderas)
 
-     }
+    vinosPorBanderas.length > 0 ?
+        pintarHTML(vinosPorBanderas) :
+        tarjetasVinos.innerHTML = `<h1 class="ceroResult" >No se encontraron eventos para tu busqueda </h1>`
+
+}
 
 
 //FILTROS CATEGORIAS II
@@ -486,7 +485,7 @@ function filtrosCombinados(){
 
 for (let i = 0; i < filtrosCategoriaDos.length; i++) {
     let elementDos = filtrosCategoriaDos[i];
-    elementDos.addEventListener("click", function (e){
+    elementDos.addEventListener("click", function (e) {
         if (e.target.parentElement.id == "VinosTintos") {
             imprimir("vinosTintos")
         }
@@ -505,12 +504,184 @@ for (let i = 0; i < filtrosCategoriaDos.length; i++) {
 
 }
 
+//FILTROS UVAS
+
+for (let i = 0; i < filtrosUvas.length; i++) {
+    let uvas = filtrosUvas[i];
+    uvas.addEventListener("click", function (e) {
+        porUvas(e.target.parentElement.id)
+    })
+}
+
+function porUvas(outerText) {
+
+    switch (outerText) {
+
+        case "CAS":
+            let uvaCAS = vinos.filter(vino => vino.Uva == "Cabernet Sauvignon");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaCAS)
+            break;
+
+        case "CHA":
+            let uvaCHA = vinos.filter(vino => vino.Uva == "Chardonnay");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaCHA)
+            break;
+
+        case "GRE":
+            let uvaGRE = vinos.filter(vino => vino.Uva == "Grenache");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaGRE)
+            break;
+
+        case "GRB":
+            let uvaGRB = vinos.filter(vino => vino.Uva == "Grenache Blanc");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaGRB)
+            break;
+
+        case "MAC":
+            let uvaMAC = vinos.filter(vino => vino.Uva == "Macabeo");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaMAC)
+            break;
+
+        case "MAL":
+            let uvaMAL = vinos.filter(vino => vino.Uva == "Malbec");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaMAL)
+            break;
+
+        case "MER":
+            let uvaMER = vinos.filter(vino => vino.Uva == "Merlot");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaMER)
+            break;
+
+        case "MEZ":
+            let uvaMEZ = vinos.filter(vino => vino.Uva == "Mezcla");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaMEZ)
+            break;
+
+        case "PIN":
+            let uvaPIN = vinos.filter(vino => vino.Uva == "Pinot Noir");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaPIN)
+            break;
+
+        case "SAN":
+            let uvaSAN = vinos.filter(vino => vino.Uva == "Sangiovese");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaSAN)
+            break;
+
+        case "SAB":
+            let uvaSAB = vinos.filter(vino => vino.Uva == "Sauvignon Blanc");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaSAB)
+            break;
+
+        case "SHS":
+            let uvaSHS = vinos.filter(vino => vino.Uva == "Shiraz-Syrah");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(uvaSHS);
+            break;
+    }
+
+}
+
 //FILTROS BANDERAS
 
 for (let i = 0; i < filtrosBanderas.length; i++) {
     let banderas = filtrosBanderas[i];
     banderas.addEventListener("click", function (e) {
-         porBanderas(e.target.parentElement.id)
+        porBanderas(e.target.parentElement.id)
     })
 }
 
@@ -523,6 +694,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -535,6 +707,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -547,6 +720,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -559,6 +733,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -571,6 +746,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -583,6 +759,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -595,6 +772,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -607,6 +785,7 @@ function porBanderas(outerText) {
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -614,22 +793,24 @@ function porBanderas(outerText) {
             pintarHTML(banderaMexico)
             break;
 
-            case "NZL":
-                let banderaNuevaZelanda = vinos.filter(vino => vino.Bandera == "NuevaZelanda");
-                home.style.display = "none"
-                wines.style.display = "none"
-                tipesOfWines.style.display = "none"
-                countries.style.display = "none"
-                recommendedWines.style.display = "none"
-                newslatter.style.display = "none"
-                allWines.style.display = "flex"
-                pintarHTML(banderaNuevaZelanda)
-                break;
+        case "NZL":
+            let banderaNuevaZelanda = vinos.filter(vino => vino.Bandera == "NuevaZelanda");
+            home.style.display = "none"
+            wines.style.display = "none"
+            tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
+            countries.style.display = "none"
+            recommendedWines.style.display = "none"
+            newslatter.style.display = "none"
+            allWines.style.display = "flex"
+            pintarHTML(banderaNuevaZelanda)
+            break;
 
         default:
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
+            tipesOfGrapes.style.display = "none"
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
@@ -642,16 +823,16 @@ function porBanderas(outerText) {
 
 // FUNCION ACORDEON
 
-let elementAcordeon= document.getElementsByClassName("acordeon");
+let elementAcordeon = document.getElementsByClassName("acordeon");
 
-for(let i=0; i< elementAcordeon.length; i++){
-    elementAcordeon[i].addEventListener("click", function(){
+for (let i = 0; i < elementAcordeon.length; i++) {
+    elementAcordeon[i].addEventListener("click", function () {
         this.classList.toggle("active")
-        let panel= this.nextElementSibling;
-        if(panel.style.display=="block"){
-            panel.style.display="none"
-        }else{
-            panel.style.display="block"
+        let panel = this.nextElementSibling;
+        if (panel.style.display == "block") {
+            panel.style.display = "none"
+        } else {
+            panel.style.display = "block"
         }
     })
 }
