@@ -1,4 +1,24 @@
 let vinos;
+// function infoVinoteca() {
+
+//     const vinos = firebase.firestore().collection("vinoteca"); 
+
+//     let dataApi=[]
+//   vinos.get()
+//     .then((results) => {
+
+//       const data = results.docs.map((doc) => ({
+//         id: doc.id,
+//         ...doc.data(),
+//       }));
+//       dataApi.push(...data)
+//       arrayProductosApi = dataApi
+
+//     console.log(dataApi);
+//   });
+//     }
+//     infoVinoteca()
+
 let tarjetasVinos = document.getElementById("tarjetasVinos");
 let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
@@ -7,13 +27,13 @@ let filtrosBanderas = document.getElementsByClassName("cardCountries");
 let filtrosUvas = document.getElementsByClassName("cardGrapes");
 var input = document.getElementById("input");
 var detalles = document.getElementsByClassName("ancla");
+let contact = document.getElementById("contacto");
+let ocultar = document.getElementById("ocultar");
 let filtrado = [];
 var arrayAFiltrar = []
 let arrayCheckbox = [];
 let datoLimpio = "";
 let datoInput = "";
-
-
 
 async function getData() {
     let data;
@@ -22,6 +42,7 @@ async function getData() {
         .then(json => data = json)
 
     vinos = data.tipesOfWines;
+    console.log(vinos)
 
     rutas()
 
@@ -52,11 +73,15 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
-            arrayCheckbox = [];
+            ocultar.style.display="flex"
+            contact.style.display= "none"
+            arrayAFiltrar = vinos;
             input.value = "";
             pintarHTML(vinos)
-            checkboxListener(vinos)
-            arrayAFiltrar = vinos
+            uvasCategories(vinos)
+            // checkboxListener(vinos)
+            // checkboxListenerUvas(vinos)
+            // search(vinos)
             break;
 
         case "vinosTintos":
@@ -70,11 +95,16 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "flex"
+            ocultar.style.display="none"
+            contact.style.display= "none";
             arrayAFiltrar = vinosTintos;
             arrayCheckbox = [];
             input.value = "";
             pintarHTML(vinosTintos)
-            checkboxListener(vinosTintos)
+            uvasCategories(vinosTintos)
+            // checkboxListener(vinosTintos)
+            // checkboxListenerUvas(vinosTintos)
+            // search(vinosTintos)
             break;
 
         case "vinosBlancos":
@@ -86,12 +116,17 @@ async function imprimir(id) {
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
+            ocultar.style.display="none"
             allWines.style.display = "flex"
+            contact.style.display= "none"
             arrayAFiltrar = vinosBlancos;
             arrayCheckbox = [];
             input.value = "";
             pintarHTML(vinosBlancos)
-            checkboxListener(vinosBlancos)
+            uvasCategories(vinosBlancos)
+            // checkboxListener(vinosBlancos)
+            // checkboxListenerUvas(vinosBlancos)
+            // search(vinosBlancos)
             break;
 
         case "vinosRosados":
@@ -103,12 +138,17 @@ async function imprimir(id) {
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
+            ocultar.style.display="none"
             allWines.style.display = "flex"
+            contact.style.display= "none"
             arrayAFiltrar = vinosRosados;
             arrayCheckbox = [];
             input.value = "";
             pintarHTML(vinosRosados)
-            checkboxListener(vinosRosados)
+            uvasCategories(vinosRosados)
+            // checkboxListener(vinosRosados)
+            // checkboxListenerUvas(vinosRosados)
+            // search(vinosRosados)
             break;
 
         case "vinosEspumosos":
@@ -120,15 +160,19 @@ async function imprimir(id) {
             countries.style.display = "none"
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
+            ocultar.style.display="none"
             allWines.style.display = "flex"
+            contact.style.display= "none"
             arrayAFiltrar = vinosEspumosos;
             arrayCheckbox = [];
             input.value = "";
             pintarHTML(vinosEspumosos)
-            checkboxListener(vinosEspumosos)
+            uvasCategories(vinosEspumosos)
+            // checkboxListener(vinosEspumosos)
+            // checkboxListenerUvas(vinosEspumosos)
             break;
 
-        case "contacto":
+        case "contactos":
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -137,7 +181,7 @@ async function imprimir(id) {
             recommendedWines.style.display = "none"
             newslatter.style.display = "none"
             allWines.style.display = "none"
-            pintarHTML(contacto);
+            contact.style.display = "flex"
             break;
 
         default:
@@ -149,6 +193,7 @@ async function imprimir(id) {
             recommendedWines.style.display = "flex"
             newslatter.style.display = "flex"
             allWines.style.display = "none"
+            contact.style.display= "none"
             break;
     }
 }
@@ -390,13 +435,14 @@ function rutas() {
 
 
 //FUNCION SEARCH
+
 input.addEventListener("keyup", function (vino) {
 
     var datoInput = vino.target.value;
     let datoLimpio = datoInput.trim().toLowerCase();
     console.log(datoLimpio)
 
-    //  filtrado= arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+    //  let filtrado= arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
 
     // pintarHTML(filtrado)
 
@@ -404,30 +450,33 @@ input.addEventListener("keyup", function (vino) {
 })
 
 
+
 //CREACION DE CHECKBOX DINAMICAS
 
-// function eventsCategories(array) {
-//     let categories = array.map(vino => vino.TipoDeVino)
-//     let unica = new Set(categories)
-//     let lastCategories = [...unica]
+function uvasCategories(array) {
+    let categories = array.map(vino => vino.Uva)
+    let unica = new Set(categories)
+    let lastCategories = [...unica]
 
-//     let categoriasVinos = ""
-//     lastCategories.map(category =>
-//         categoriasVinos +=
-//         `
-//     <label><input type="checkbox" value="${TipoDeVino}"> ${TipoDeVino}</label>
-//     `
-//     )
-//     document.getElementById("checkcategories").innerHTML = categoriasVinos
+    let categoriasVinos = ""
+    lastCategories.map(category =>
+        categoriasVinos +=
+        `
+    <label><input type="checkbox" value="${category}"> ${category}</label>
+    `
+    )
+    document.getElementById("checkboxTiposDeVinos").innerHTML = categoriasVinos
 
-//     checkboxListener()
-// }
+    checkboxListener()
+    checkboxListenerUvas()
+}
 
-// FUNCION DE FILTRADO CHECKBOX
+
+// FUNCION DE FILTRADO CHECKBOX PAISES 
 
 function checkboxListener() {
 
-    var filtrosPaises = document.getElementById("eckboxListenerfilters");
+    var filtrosPaises = document.getElementById("checkboxPaises");
     var checkboxPaises = filtrosPaises.querySelectorAll('input[type="checkbox"]');
 
     for (var i = 0; i < checkboxPaises.length; i++) {
@@ -438,6 +487,7 @@ function checkboxListener() {
                     arrayCheckbox.push(checkboxPaises[i].value)
                 }
             }
+            console.log(arrayCheckbox)
             filtrosCombinados()
         })
     }
@@ -467,11 +517,10 @@ function filtrosCombinados() {
     }
 
     else {
-        // vinosPorBanderas = arrayAFiltrar
+        vinosPorBanderas = arrayAFiltrar
 
     }
 
-    console.log(vinosPorBanderas)
 
     vinosPorBanderas.length > 0 ?
         pintarHTML(vinosPorBanderas) :
@@ -479,8 +528,70 @@ function filtrosCombinados() {
 
 }
 
+// FUNCION DE FILTRADO CHECKBOX TIPO DE UVA
 
-//FILTROS CATEGORIAS II
+function checkboxListenerUvas() {
+
+    var filtrosUvas = document.getElementById("checkboxTiposDeUvas");
+    var checkboxUvas = filtrosUvas.querySelectorAll('input[type="checkbox"]');
+
+    console.log(checkboxUvas)
+
+    arrayCheckbox=[];
+
+    for (var i = 0; i < checkboxUvas.length; i++) {
+        checkboxUvas[i].addEventListener("click", function () {
+            arrayCheckbox = [];
+            for (var i = 0; i < checkboxUvas.length; i++) {
+                if (checkboxUvas[i].checked) {
+                    arrayCheckbox.push(checkboxUvas[i].value)
+                }
+            }
+            console.log(arrayCheckbox)
+            filtrosCombinadosUvas()
+        })
+    }
+}
+
+
+function filtrosCombinadosUvas() {
+
+    var vinosPorUva = [];
+
+    if (datoLimpio !== "" && arrayCheckbox.length > 0) {
+        arrayCheckbox.map(uva => {
+            vinosPorUva.push(...arrayAFiltrar.filter(vino =>
+                vino.Nombre.toLowerCase().includes(datoLimpio) && vino.Uva === uva))
+        })
+
+    }
+
+    else if (datoLimpio !== "" && arrayCheckbox.length == 0) {
+        vinosPorUva = arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+    }
+
+    else if (datoLimpio === "" && arrayCheckbox.length > 0) {
+
+        arrayCheckbox.map(category =>
+            vinosPorUva.push(...arrayAFiltrar.filter(vino => vino.Uva === category))
+        )
+    }
+
+    else {
+        vinosPorUva= arrayAFiltrar
+
+    }
+
+
+    vinosPorUva.length > 0 ?
+        pintarHTML(vinosPorUva) :
+        tarjetasVinos.innerHTML = `<h1 class="ceroResult" >No se encontraron eventos para tu busqueda </h1>`
+
+}
+
+
+
+//FILTROS CATEGORIAS II -LANDING
 
 
 for (let i = 0; i < filtrosCategoriaDos.length; i++) {
@@ -504,7 +615,7 @@ for (let i = 0; i < filtrosCategoriaDos.length; i++) {
 
 }
 
-//FILTROS UVAS
+//FILTROS UVAS LANDING
 
 for (let i = 0; i < filtrosUvas.length; i++) {
     let uvas = filtrosUvas[i];
@@ -676,7 +787,7 @@ function porUvas(outerText) {
 
 }
 
-//FILTROS BANDERAS
+//FILTROS BANDERAS LANDING
 
 for (let i = 0; i < filtrosBanderas.length; i++) {
     let banderas = filtrosBanderas[i];
@@ -837,18 +948,3 @@ for (let i = 0; i < elementAcordeon.length; i++) {
     })
 }
 
-
-
-
-//FILTROS POR TIPOS DE UVAS
-
-// console.log(vinos)
-
-// let tiposDeUvas=[];
-// let uvas= vinos.forEach(element =>{
-
-//     tiposDeUvas.push({
-//         dato: uvas.filter(vino=> vino.Uva===element)
-// }
-// )
-// })

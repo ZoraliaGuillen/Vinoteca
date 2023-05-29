@@ -562,7 +562,110 @@ flex-direction: column;
 
 
 
+/* CONTACTANOS */
 
+.contact{
+    padding-top: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    min-height: 500px;
+    line-height: 3;
+}
+
+.formulario{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width:80%;
+    margin: auto;
+}
+
+.formuYcomentarios{
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    width:100%
+}
+
+.contenedorFormulario{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin: auto;
+
+}
+
+.formulario{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    row-gap: 15px;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: center;
+}
+
+.titulo h2{
+    text-align: center;
+    font-size:1em;
+    color: var(--purple1);
+}
+
+.formulario input{
+    height: 25px;
+    padding-left: 10px;
+    width:48%;
+    border:1px solid gray;
+
+}
+
+.comentario{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width:100%;
+    height: 50%;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+.comentario input{
+    position: relative;
+    width:100%;
+    height:200px;
+    padding-left: 10px;
+}
+
+.comentario p{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    opacity: 0.7;
+
+}
+
+h2{
+    font-size: 1rem;
+}
+
+.comentario > button{
+    position: relative;
+    background-color:var(--purple1);
+    max-width: 800px;
+    width:80%;
+    height: 40px;
+    color:#fff;
+    border-radius: 7px;
+    border: 1px solid #fff;
+    cursor: pointer;
+
+}
 
 
 

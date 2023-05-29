@@ -16,7 +16,7 @@ async function getData() {
 
 getData()
 
-function imprimirDetalles() {
+ function imprimirDetalles() {
 
     let id = location.search.split("?id=").filter(Number)
     let selectId = id[0]

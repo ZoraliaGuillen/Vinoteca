@@ -72,7 +72,7 @@
                     <li class="navLink"><a href="./index.html#vinosBlancos" id="vinosBlancos">VINOS BLANCOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosRosados" id="vinosRosados">VINOS ROSADOS</a></li>
                     <li class="navLink"><a href="./index.html#vinosEspumosos" id="vinosEspumosos">VINOS ESPUMOSOS</a>
-                    <li class="navLink"><a href="./index.html#contacto" id="contacto">CONTACTO</a></li>
+                    <li class="navLink"><a href="./index.html#contacto" id="contactos">CONTACTO</a></li>
                 </ul>
             </nav>
         </section>
@@ -373,14 +373,16 @@
                         <label><input type="checkbox" value="Nueva Zelanda">Nueva Zelanda</label>
                     </div>
                     <button class="acordeon">TIPO DE VINO</button>
+                    <div id="ocultar">
                     <div class="panel" id="checkboxTiposDeVinos">
-                        <label><input type="checkbox" value="Tinto">Tinto</label>
+                        <!-- <label><input type="checkbox" value="Tinto">Tinto</label>
                         <label><input type="checkbox" value="Blanco">Blanco</label>
                         <label><input type="checkbox" value="Rosado">Rosado</label>
-                        <label><input type="checkbox" value="Espumoso">Espumoso</label>
+                        <label><input type="checkbox" value="Espumoso">Espumoso</label> -->
                     </div>
+                </div>
                     <button class="acordeon">TIPO DE UVA DE VINO</button>
-                    <div class="panel">
+                    <div class="panel" id="checkboxTiposDeUvas">
                         <label><input type="checkbox" value="Cabernet Sauvignon">Cabernet Sauvignon</label>
                         <label><input type="checkbox" value="Chardonnay">Chardonnay</label>
                         <label><input type="checkbox" value="Grenache">Grenache</label>
@@ -399,9 +401,29 @@
 
                 <div class="cardContainerWiness" id="tarjetasVinos"></div>
             </div>
-        </section class="contact">
-
         </section>
+
+        <section class="contact" id="contacto">
+
+            <div class="titulo" id="conviertete"> 
+                <h2>CONTACTATE CON NOSOTROS</h2>
+            </div>
+                <form class="contenedorFormulario">
+                    <div class="formulario">
+                    <input name="nombre" type="text" placeholder="Nombre">
+                    <input name="apellido" type="text" placeholder="Apellido">
+                    <input name="correo" type="email" placeholder="Correo">
+                    <input name="telefono" type="text" placeholder="Teléfono">
+
+                    <div class="comentario"> 
+                    <input name="comentario" type="textarea" rows="20" cols="80" placeholder="Sobre qué quieres hablar?">
+                        <p><b>Puedes dejarnos tu comentario, dudas o sugerencias</b></p>
+                        <button type="submit">Enviar</button>
+                    </div>
+        
+                </form>
+        </section>
+       
     </main>
     <footer>
         <section class="footer">
