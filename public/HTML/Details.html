@@ -86,11 +86,44 @@
             <h4>COPYRIGTH @ 2023 by</h3>
         </section>
     </footer>
-    
-    <script src="../JavaScript/Details.js"></script>
-    <!-- <script src="../JavaScript/index.js"></script> -->
-  
 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+ 
+  <script>
+     // Import the functions you need from the SDKs you need
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+ 
+ // Your web app's Firebase configuration
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ const firebaseConfig = {
+   apiKey: "AIzaSyDKZmbmjds7OVGmj_kGJ0KXr_ebO1VQiLU",
+   authDomain: "vinoteca-3c791.firebaseapp.com",
+   projectId: "vinoteca-3c791",
+   storageBucket: "vinoteca-3c791.appspot.com",
+   messagingSenderId: "604096968395",
+   appId: "1:604096968395:web:c6bd236b191ce4d36f8d4e",
+   measurementId: "G-HER3N6GMLM"
+ };
+ 
+         // Import the functions you need from the SDKs you need
+         // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+         // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+         // TODO: Add SDKs for Firebase products that you want to use
+         // https://firebase.google.com/docs/web/setup#available-libraries
+       
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         const db = firebase.firestore();
+        
+    </script>
+    <script src="../JavaScript/Details.js"></script>
+    <script src="../JavaScript/index.js"></script>
+  
 </body>
 
 </html>

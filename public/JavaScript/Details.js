@@ -1,35 +1,62 @@
 let vinosDetalles;
 
-async function getData() {
-    let datosApi
-    await fetch("./recursos/wines.JSON")
-        .then(response => response.json())
-        .then(json => datosApi=json)
+async function infoVinoteca() {
 
-        vinosDetalles = datosApi.tipesOfWines;
+    const vinotecaDos = firebase.firestore().collection("vinoteca"); 
 
-        console.log(vinosDetalles)
+    let dataApiDos=[]
+   await vinotecaDos.get()
+    .then((results) => {
 
-        imprimirDetalles()
+      const data = results.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      dataApiDos.push(...data)
 
-}
+      vinosDetalles = dataApiDos;
 
-getData()
+    console.log(vinosDetalles);
+  });
 
- function imprimirDetalles() {
+  imprimirDetalles()
+  
+    }
+
+infoVinoteca()
+
+// async function getData() {
+//     let datosApi
+//     await fetch("./recursos/wines.JSON")
+//         .then(response => response.json())
+//         .then(json => datosApi=json)
+
+//         vinosDetalles = datosApi.tipesOfWines;
+
+//         console.log(vinosDetalles)
+
+//         imprimirDetalles()
+
+// }
+
+// getData()
+
+ async function imprimirDetalles() {
 
     let id = location.search.split("?id=").filter(Number)
+    console.log(id)
     let selectId = id[0]
-    let Detalles = []
+    console.log(selectId)
+    let detalles = []
 
     for (var i = 0; i < vinosDetalles.length; i++) {
 
-        if (vinosDetalles[i].Id==selectId) {
+        if (vinosDetalles[i].id==selectId) {
             detalles.push(vinosDetalles[i])
         }
     }
 
-    console.log(Detalles)
+    console.log(detalles)
 
     var tarjetasVinosDetalles = document.getElementById("allWinesDetails")
     tarjetasVinosDetalles.innerHTML = 
@@ -37,14 +64,14 @@ getData()
     `<div class="cardContainerDetails">
     <div class="imageCardDetails">
         <i class="fa-solid fa-heart"></i>
-        <img src="../recursos/Images/${detalles[0].Image}.png" alt="${detalles[0].Nombre}" class="wine">
-        <img src="../recursos/Images/${detalles[0].Bandera}.png" alt="Bandera de ${detalles[0].Bandera}" class="flag">
+        <img src=${detalles[0].imagen} alt="${detalles[0].nombre}" class="wine">
+        <img src=${detalles[0].bandera} alt="Bandera de ${detalles[0].bandera}" class="flag">
     </div>
     <div class="cardDetails">
-        <h3 class="name">${detalles[0].Nombre}</h3>
-        <p class="winery">${detalles[0].Bodega}</p>
+        <h3 class="name">${detalles[0].nombre}</h3>
+        <p class="winery">${detalles[0].bodega}</p>
         <strong>
-            <p class="price">${detalles[0].Precio}0$</p>
+            <p class="price">${detalles[0].precio}0$</p>
         </strong>
         <div class="buttonsDetail">
             <div class="quantity">
@@ -58,35 +85,35 @@ getData()
             <h3>Detalles</h3>
             <div>
                 <h4>Nombre :</h4>
-                <p>${detalles[0].Nombre}</p>
+                <p>${detalles[0].nombre}</p>
             </div>
             <div>
                 <h4>Bodega :</h4>
-                <p>${detalles[0].Bodega}</p>
+                <p>${detalles[0].bodega}</p>
             </div>
             <div>
                 <h4>País :</h4>
-                <p>${detalles[0].Pais}</p>
+                <p>${detalles[0].pais}</p>
             </div>
             <div>
                 <h4>Región :</h4>
-                <p>${detalles[0].Region}</p>
+                <p>${detalles[0].region}</p>
             </div>
             <div>
                 <h4>Tipo de Vino :</h4>
-                <p>${detalles[0].TipoDeVino}</p>
+                <p>${detalles[0].tipoDeVino}</p>
             </div>
             <div>
                 <h4>Uva :</h4>
-                <p>${detalles[0].Uva}</p>
+                <p>${detalles[0].uva}</p>
             </div>
             <div>
                 <h4>Cosecha :</h4>
-                <p>${detalles[0].Cosecha}</p>
+                <p>${detalles[0].cosecha}</p>
             </div>
             <div>
                 <h4>Puntuación :</h4>
-                <p>${detalles[0].Puntuacion}</p>
+                <p>${detalles[0].puntuacion}</p>
             </div>
         </div>
     </div>

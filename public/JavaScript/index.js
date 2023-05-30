@@ -1,24 +1,3 @@
-let vinos;
-// function infoVinoteca() {
-
-//     const vinos = firebase.firestore().collection("vinoteca"); 
-
-//     let dataApi=[]
-//   vinos.get()
-//     .then((results) => {
-
-//       const data = results.docs.map((doc) => ({
-//         id: doc.id,
-//         ...doc.data(),
-//       }));
-//       dataApi.push(...data)
-//       arrayProductosApi = dataApi
-
-//     console.log(dataApi);
-//   });
-//     }
-//     infoVinoteca()
-
 let tarjetasVinos = document.getElementById("tarjetasVinos");
 let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
@@ -34,22 +13,30 @@ var arrayAFiltrar = []
 let arrayCheckbox = [];
 let datoLimpio = "";
 let datoInput = "";
+let vinos;
 
-async function getData() {
-    let data;
-    await fetch("./recursos/wines.JSON")
-        .then(response => response.json())
-        .then(json => data = json)
+async function infoVinoteca() {
 
-    vinos = data.tipesOfWines;
-    console.log(vinos)
+    const vinoteca = firebase.firestore().collection("vinoteca"); 
 
-    rutas()
+    let dataApi=[]
+  vinoteca.get()
+    .then((results) => {
 
-}
+      const data = results.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      dataApi.push(...data)
+      vinos = dataApi
 
-getData();
+    console.log(dataApi);
+  });
 
+        rutas()
+  
+    }
+    infoVinoteca()
 
 for (let i = 0; i < navVinos.length; i++) {
     let element = navVinos[i];
@@ -85,7 +72,7 @@ async function imprimir(id) {
             break;
 
         case "vinosTintos":
-            let vinosTintos = vinos.filter(vino => vino.TipoDeVino == "Tinto");
+            let vinosTintos = vinos.filter(vino => vino.tipoDeVino == "Tinto");
             console.log(vinosTintos)
             home.style.display = "none"
             wines.style.display = "none"
@@ -108,7 +95,7 @@ async function imprimir(id) {
             break;
 
         case "vinosBlancos":
-            let vinosBlancos = vinos.filter(vino => vino.TipoDeVino == "Blanco");
+            let vinosBlancos = vinos.filter(vino => vino.tipoDeVino == "Blanco");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -130,7 +117,7 @@ async function imprimir(id) {
             break;
 
         case "vinosRosados":
-            let vinosRosados = vinos.filter(vino => vino.TipoDeVino == "Rosado");
+            let vinosRosados = vinos.filter(vino => vino.tipoDeVino == "Rosado");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -152,7 +139,7 @@ async function imprimir(id) {
             break;
 
         case "vinosEspumosos":
-            let vinosEspumosos = vinos.filter(vino => vino.TipoDeVino == "Espumoso");
+            let vinosEspumosos = vinos.filter(vino => vino.tipoDeVino == "Espumoso");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -206,18 +193,18 @@ function pintarHTML(array) {
             `
             <div class="cardWines">
                 <i class="fa-solid fa-heart"></i>
-                <img src="./recursos/Images/${array[i].Image}.png" alt="${array[i].Nombre}">
-                <img src="./recursos/Images/${array[i].Bandera}.png" alt="" class="flag">
-                <p class="score">${array[i].Puntuacion}</p>
+                <img src=${array[i].imagen} alt="${array[i].nombre}">
+                <img src=${array[i].bandera} alt="" class="flag">
+                <p class="score">${array[i].puntuacion}</p>
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                 class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                <h3 class="name">${array[i].Nombre}</h3>
-                <p class="winerys">${array[i].Bodega}</p>
+                <h3 class="name">${array[i].nombre}</h3>
+                <p class="winerys">${array[i].bodega}</p>
                 <strong>
-                    <p class="price">${array[i].Precio}</p>
+                    <p class="price">${array[i].precio}</p>
                 </strong>
                 <div class="buttons">
-                    <button><a href="./HTML/Details.html?=id${array[i].Id}">VER DETALLE</a></button>
+                    <button><a href="./HTML/Details.html?=id${array[i].id}">VER DETALLE</a></button>
                     <button class="add"><a href="">AGREGAR</a></button>
                 </div>
             </div>
@@ -454,7 +441,7 @@ input.addEventListener("keyup", function (vino) {
 //CREACION DE CHECKBOX DINAMICAS
 
 function uvasCategories(array) {
-    let categories = array.map(vino => vino.Uva)
+    let categories = array.map(vino => vino.uva)
     let unica = new Set(categories)
     let lastCategories = [...unica]
 
@@ -500,19 +487,19 @@ function filtrosCombinados() {
     if (datoLimpio !== "" && arrayCheckbox.length > 0) {
         arrayCheckbox.map(bandera => {
             vinosPorBanderas.push(...arrayAFiltrar.filter(vino =>
-                vino.Nombre.toLowerCase().includes(datoLimpio) && vino.Pais === bandera))
+                vino.nombre.toLowerCase().includes(datoLimpio) && vino.pais === bandera))
         })
 
     }
 
     else if (datoLimpio !== "" && arrayCheckbox.length == 0) {
-        vinosPorBanderas = arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+        vinosPorBanderas = arrayAFiltrar.filter(vino => vino.nombre.toLowerCase().includes(datoLimpio))
     }
 
     else if (datoLimpio === "" && arrayCheckbox.length > 0) {
 
         arrayCheckbox.map(category =>
-            vinosPorBanderas.push(...arrayAFiltrar.filter(vino => vino.Pais === category))
+            vinosPorBanderas.push(...arrayAFiltrar.filter(vino => vino.pais === category))
         )
     }
 
@@ -561,19 +548,19 @@ function filtrosCombinadosUvas() {
     if (datoLimpio !== "" && arrayCheckbox.length > 0) {
         arrayCheckbox.map(uva => {
             vinosPorUva.push(...arrayAFiltrar.filter(vino =>
-                vino.Nombre.toLowerCase().includes(datoLimpio) && vino.Uva === uva))
+                vino.nombre.toLowerCase().includes(datoLimpio) && vino.uva === uva))
         })
 
     }
 
     else if (datoLimpio !== "" && arrayCheckbox.length == 0) {
-        vinosPorUva = arrayAFiltrar.filter(vino => vino.Nombre.toLowerCase().includes(datoLimpio))
+        vinosPorUva = arrayAFiltrar.filter(vino => vino.nombre.toLowerCase().includes(datoLimpio))
     }
 
     else if (datoLimpio === "" && arrayCheckbox.length > 0) {
 
         arrayCheckbox.map(category =>
-            vinosPorUva.push(...arrayAFiltrar.filter(vino => vino.Uva === category))
+            vinosPorUva.push(...arrayAFiltrar.filter(vino => vino.uva === category))
         )
     }
 
@@ -629,7 +616,7 @@ function porUvas(outerText) {
     switch (outerText) {
 
         case "CAS":
-            let uvaCAS = vinos.filter(vino => vino.Uva == "Cabernet Sauvignon");
+            let uvaCAS = vinos.filter(vino => vino.uva == "Cabernet Sauvignon");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -642,7 +629,7 @@ function porUvas(outerText) {
             break;
 
         case "CHA":
-            let uvaCHA = vinos.filter(vino => vino.Uva == "Chardonnay");
+            let uvaCHA = vinos.filter(vino => vino.uva == "Chardonnay");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -655,7 +642,7 @@ function porUvas(outerText) {
             break;
 
         case "GRE":
-            let uvaGRE = vinos.filter(vino => vino.Uva == "Grenache");
+            let uvaGRE = vinos.filter(vino => vino.uva == "Grenache");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -668,7 +655,7 @@ function porUvas(outerText) {
             break;
 
         case "GRB":
-            let uvaGRB = vinos.filter(vino => vino.Uva == "Grenache Blanc");
+            let uvaGRB = vinos.filter(vino => vino.uva == "Grenache Blanc");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -681,7 +668,7 @@ function porUvas(outerText) {
             break;
 
         case "MAC":
-            let uvaMAC = vinos.filter(vino => vino.Uva == "Macabeo");
+            let uvaMAC = vinos.filter(vino => vino.uva == "Macabeo");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -694,7 +681,7 @@ function porUvas(outerText) {
             break;
 
         case "MAL":
-            let uvaMAL = vinos.filter(vino => vino.Uva == "Malbec");
+            let uvaMAL = vinos.filter(vino => vino.uva == "Malbec");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -707,7 +694,7 @@ function porUvas(outerText) {
             break;
 
         case "MER":
-            let uvaMER = vinos.filter(vino => vino.Uva == "Merlot");
+            let uvaMER = vinos.filter(vino => vino.uva == "Merlot");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -720,7 +707,7 @@ function porUvas(outerText) {
             break;
 
         case "MEZ":
-            let uvaMEZ = vinos.filter(vino => vino.Uva == "Mezcla");
+            let uvaMEZ = vinos.filter(vino => vino.uva == "Mezcla");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -733,7 +720,7 @@ function porUvas(outerText) {
             break;
 
         case "PIN":
-            let uvaPIN = vinos.filter(vino => vino.Uva == "Pinot Noir");
+            let uvaPIN = vinos.filter(vino => vino.uva == "Pinot Noir");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -746,7 +733,7 @@ function porUvas(outerText) {
             break;
 
         case "SAN":
-            let uvaSAN = vinos.filter(vino => vino.Uva == "Sangiovese");
+            let uvaSAN = vinos.filter(vino => vino.uva == "Sangiovese");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -759,7 +746,7 @@ function porUvas(outerText) {
             break;
 
         case "SAB":
-            let uvaSAB = vinos.filter(vino => vino.Uva == "Sauvignon Blanc");
+            let uvaSAB = vinos.filter(vino => vino.uva == "Sauvignon Blanc");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -772,7 +759,7 @@ function porUvas(outerText) {
             break;
 
         case "SHS":
-            let uvaSHS = vinos.filter(vino => vino.Uva == "Shiraz-Syrah");
+            let uvaSHS = vinos.filter(vino => vino.uva == "Shiraz-Syrah");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -792,6 +779,7 @@ function porUvas(outerText) {
 for (let i = 0; i < filtrosBanderas.length; i++) {
     let banderas = filtrosBanderas[i];
     banderas.addEventListener("click", function (e) {
+        console.log(e)
         porBanderas(e.target.parentElement.id)
     })
 }
@@ -801,7 +789,7 @@ function porBanderas(outerText) {
     switch (outerText) {
 
         case "ARG":
-            let banderaArgentina = vinos.filter(vino => vino.Bandera == "Argentina");
+            let banderaArgentina = vinos.filter(vino => vino.bandera == "Argentina");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -814,7 +802,7 @@ function porBanderas(outerText) {
             break;
 
         case "AUS":
-            let banderaAustralia = vinos.filter(vino => vino.Bandera == "Australia");
+            let banderaAustralia = vinos.filter(vino => vino.bandera == "Australia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -827,7 +815,7 @@ function porBanderas(outerText) {
             break;
 
         case "CHI":
-            let banderaChile = vinos.filter(vino => vino.Bandera == "Chile");
+            let banderaChile = vinos.filter(vino => vino.bandera == "Chile");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -840,7 +828,7 @@ function porBanderas(outerText) {
             break;
 
         case "ESP":
-            let banderaEspaña = vinos.filter(vino => vino.Bandera == "España");
+            let banderaEspaña = vinos.filter(vino => vino.bandera == "España");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -853,7 +841,7 @@ function porBanderas(outerText) {
             break;
 
         case "EUA":
-            let banderaEstadosUnidos = vinos.filter(vino => vino.Bandera == "EstadosUnidos");
+            let banderaEstadosUnidos = vinos.filter(vino => vino.bandera == "EstadosUnidos");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -866,7 +854,7 @@ function porBanderas(outerText) {
             break;
 
         case "FRA":
-            let banderaFrancia = vinos.filter(vino => vino.Bandera == "Francia");
+            let banderaFrancia = vinos.filter(vino => vino.bandera == "Francia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -879,7 +867,7 @@ function porBanderas(outerText) {
             break;
 
         case "ITA":
-            let banderaItalia = vinos.filter(vino => vino.Bandera == "Italia");
+            let banderaItalia = vinos.filter(vino => vino.bandera == "Italia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -892,7 +880,7 @@ function porBanderas(outerText) {
             break;
 
         case "MEX":
-            let banderaMexico = vinos.filter(vino => vino.Bandera == "Mexico");
+            let banderaMexico = vinos.filter(vino => vino.bandera == "Mexico");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -905,7 +893,7 @@ function porBanderas(outerText) {
             break;
 
         case "NZL":
-            let banderaNuevaZelanda = vinos.filter(vino => vino.Bandera == "NuevaZelanda");
+            let banderaNuevaZelanda = vinos.filter(vino => vino.bandera == "NuevaZelanda");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
