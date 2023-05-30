@@ -8,6 +8,8 @@ var input = document.getElementById("input");
 var detalles = document.getElementsByClassName("ancla");
 let contact = document.getElementById("contacto");
 let ocultar = document.getElementById("ocultar");
+let vinoEspecial1 = document.getElementById("vinosEspeciales1")
+console.log(vinoEspecial1)
 let filtrado = [];
 var arrayAFiltrar = []
 let arrayCheckbox = [];
@@ -118,6 +120,7 @@ async function imprimir(id) {
 
         case "vinosRosados":
             let vinosRosados = vinos.filter(vino => vino.tipoDeVino == "Rosado");
+            console.log(vinosRosados)
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -181,6 +184,7 @@ async function imprimir(id) {
             newslatter.style.display = "flex"
             allWines.style.display = "none"
             contact.style.display= "none"
+            // vinosEspeciales(vinos)
             break;
     }
 }
@@ -936,3 +940,14 @@ for (let i = 0; i < elementAcordeon.length; i++) {
     })
 }
 
+
+
+//LANDING 
+
+// function vinosEspeciales(array){
+
+// vinosEspeciales1.addEventListener("click", function(){
+//     href= "./HTML.Details.html"
+//     pintarHTML()
+// })
+// }
