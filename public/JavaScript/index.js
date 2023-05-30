@@ -789,7 +789,7 @@ function porBanderas(outerText) {
     switch (outerText) {
 
         case "ARG":
-            let banderaArgentina = vinos.filter(vino => vino.bandera == "Argentina");
+            let banderaArgentina = vinos.filter(vino => vino.pais == "Argentina");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -802,7 +802,7 @@ function porBanderas(outerText) {
             break;
 
         case "AUS":
-            let banderaAustralia = vinos.filter(vino => vino.bandera == "Australia");
+            let banderaAustralia = vinos.filter(vino => vino.pais == "Australia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -828,7 +828,7 @@ function porBanderas(outerText) {
             break;
 
         case "ESP":
-            let banderaEspaña = vinos.filter(vino => vino.bandera == "España");
+            let banderaEspaña = vinos.filter(vino => vino.pais == "España");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -841,7 +841,7 @@ function porBanderas(outerText) {
             break;
 
         case "EUA":
-            let banderaEstadosUnidos = vinos.filter(vino => vino.bandera == "EstadosUnidos");
+            let banderaEstadosUnidos = vinos.filter(vino => vino.pais == "EstadosUnidos");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -854,7 +854,7 @@ function porBanderas(outerText) {
             break;
 
         case "FRA":
-            let banderaFrancia = vinos.filter(vino => vino.bandera == "Francia");
+            let banderaFrancia = vinos.filter(vino => vino.pais == "Francia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -867,7 +867,7 @@ function porBanderas(outerText) {
             break;
 
         case "ITA":
-            let banderaItalia = vinos.filter(vino => vino.bandera == "Italia");
+            let banderaItalia = vinos.filter(vino => vino.pais == "Italia");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -880,7 +880,7 @@ function porBanderas(outerText) {
             break;
 
         case "MEX":
-            let banderaMexico = vinos.filter(vino => vino.bandera == "Mexico");
+            let banderaMexico = vinos.filter(vino => vino.pais == "Mexico");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
@@ -893,7 +893,7 @@ function porBanderas(outerText) {
             break;
 
         case "NZL":
-            let banderaNuevaZelanda = vinos.filter(vino => vino.bandera == "NuevaZelanda");
+            let banderaNuevaZelanda = vinos.filter(vino => vino.pais == "NuevaZelanda");
             home.style.display = "none"
             wines.style.display = "none"
             tipesOfWines.style.display = "none"
