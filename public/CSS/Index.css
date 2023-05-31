@@ -24,7 +24,7 @@ header{
 }
 
 .headerOne, .headerTwo, .headerThree{
-    padding: 10px 75px;
+    padding: 0px 75px;
     border-bottom: var(--border);
     display: flex;
     justify-content: center;
@@ -34,6 +34,7 @@ header{
 .headerOne{
     background-color: black;
     height: 40px;
+    text-align: center;
 }
 
 .headerOne p{
@@ -95,6 +96,7 @@ header{
 
 .fa-cart-shopping{
     position: relative;
+    cursor: pointer;
 }
 
 .countCartShopping{
@@ -118,7 +120,7 @@ header{
 .containerCartProducts{
     position: absolute;
     background-color: white;
-    top:100px; right:0;
+    top: 140px; right:0;
     width: 400px;
     height: 100vh;
     padding: 20px;
@@ -136,12 +138,10 @@ header{
     text-align: left;
 }
 
-.cartProduct .close{
+.cartProduct h2{
     font-size: 20px;
     font-weight: 900;
-    background-color: #d9d9d9;
-    color: var(--purple2);
-    text-align: left;
+    color: var(--purple1);
 }
 
 .infoCartProduct{
@@ -165,7 +165,7 @@ header{
 }
 
 .infoCartProduct .delete{
-    background-color: #d9d9d9;
+    background-color: white;
 }
 
 .infoCartProduct .delete i{
@@ -205,8 +205,8 @@ header{
     font-size: 12.5px;
 }
 
-.headerThree > nav > ul > li > a:hover{
-    color: black;
+.fa-bars, .close{
+    display: none;
 }
 
 .home{
@@ -223,7 +223,7 @@ header{
 .iconsHome{
     position: absolute;
     background-color: white;
-    top: 90.25%;
+    bottom: 0;
     padding: 20px;
     border-radius: 25px;
     box-shadow: var(--box-shadow);
@@ -278,10 +278,6 @@ section > h2{
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.wines-tittleOne{
-    margin-top: 32.5px;
 }
 
 .cardContainerWines{
@@ -394,20 +390,13 @@ section > h2{
     justify-content: center;
     align-items: center;
     transition: 1s ease; 
-    opacity: 0;
-    visibility: hidden;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.25);
 }
 
 
 .cardTipesOfWines .text h3 a{
     color: white;
     font-size: 25px;
-}
-
-.cardTipesOfWines:hover > .text{
-    opacity: 1;
-    visibility: visible;
 }
 
 .cardContainerTipesOfGrapes img{
@@ -433,7 +422,7 @@ section > h2{
 
 .cardContainerCountries{
     background-color: black;
-    padding: 25px;
+    padding: 25px 15px;
 }
 
 .cardContainerCountries i{
@@ -445,6 +434,7 @@ section > h2{
     border: 1px solid white;
     text-align: center;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .cardCountries img{
@@ -457,6 +447,10 @@ section > h2{
     color: white;
     padding: 10px 15px;
     width: 62.5px;
+}
+
+.recommendedWines{
+    padding-bottom: 25px;
 }
 
 .newslatter{
@@ -475,6 +469,7 @@ section > h2{
     font-size: 17.5px;
     color: white;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .newslatter input{
@@ -575,7 +570,7 @@ input[type="checkbox"]{
 /* CONTACTANOS */
 
 .contact{
-    padding-top: 160px;
+    padding-top: 190px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -688,6 +683,7 @@ h2{
 
 .footer{
     background-color: black;
+    padding:25px 0px;
 }
 
 .footer .links{
@@ -745,63 +741,91 @@ h2{
 }
 
 
+
+
 @media (max-width:991px){
 
-    .headerOne, .headerTwo{
-        padding: 0px 25px;
-
+    .search{
+        display: none !important;
     }
 
-    .cardContainerWines, .cardContainerTipesOfWines, .cardContainerCountries{
-        margin: 0px 25px;
+    .fa-bars, .close{
+         display: block;
+     }
+ 
+     .close{
+         padding: 5px 10px;
+         background-color: var(--grey);
+     }
+ 
+     .close i{
+         font-size: 20px;
+         color: var(--purple1);
+     }
+ 
+     .navVinos{
+         opacity: 0;
+         visibility: hidden;
+         position: absolute;
+         background-color: var(--grey);
+         top: 0;
+         left: 0;
+         bottom: 0;
+         height: 100vh;
+         width: 200px;
+         padding: 10px;
+         box-shadow: var(--box-shadow);
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 5px;
+     }
+ 
+     .navVinos.visibility{
+         opacity: 1;
+         visibility: visible;
+         z-index:1000;
+     }
+
+     .headerOne, .headerTwo, .headerThree, .wines, .tipesOfWines, .countries, .tipesOfGrapes, .recommendedWines, .newslatter, .allWines, .contact, .footer{
+        padding: 0px 25px;
+    }
+
+    .cardContainerWines, .cardContainerTipesOfWines, .cardContainerTipesOfGrapes, .cardContainerCountries{
+        justify-content: space-evenly;
+        gap: 15px;
+    }
+
+    .recommendedWines{
+        padding-bottom: 25px;
     }
 
     .footer{
-        padding: 25px;
+        padding:25px 0px;
     }
 
-    .cardContainerTipesOfWines{
-        justify-content: space-evenly;
-    }
-
-    .headerTwo h1{
-        font-size: 37.5px;
-    }
-
-    .headerTwo h1 i,.headerTwo .icons i{
-        font-size: 30px;
-    }
-
-    .headerTwo .icons{
-        width: 85px;
-    }
-
-    .search{
-        display: none;
-    }
-
-    .headerThree{
-        height: 112.5px;
-    }
-
-    .headerThree nav ul{
+    .allWines{
         display: flex;
         flex-direction: column;
+        padding: 190px 25px 25px 25px;
     }
 
-    .countCartShopping{
-        top: 70px;
-        right: 12.5px;
+    .filters, .cardContainerWiness{
+        width: 100%;
+        height: auto;
     }
 
-    .iconsHome{
-        padding: 10px;
-        gap: 5px;
+    .filters{
+        border-bottom: none;
+        border-right: var(--border);
     }
 
-    .iconsHome i, .iconsHome h2{
-        font-size: 12.5px;
+    .contact{
+        padding-top: 190px;
     }
 
-    
+    .contact input, .contact textarea{
+        width: 390px;
+    }
+
 }
