@@ -1,6 +1,6 @@
 let vinosDetalles;
 
-async function infoVinoteca() {
+async function infoVinotecaDos() {
 
     const vinotecaDos = firebase.firestore().collection("vinoteca"); 
 
@@ -23,29 +23,16 @@ async function infoVinoteca() {
   
     }
 
-infoVinoteca()
+infoVinotecaDos()
 
-// async function getData() {
-//     let datosApi
-//     await fetch("./recursos/wines.JSON")
-//         .then(response => response.json())
-//         .then(json => datosApi=json)
+function imprimirDetalles() {
 
-//         vinosDetalles = datosApi.tipesOfWines;
+    console.log("hola")
 
-//         console.log(vinosDetalles)
-
-//         imprimirDetalles()
-
-// }
-
-// getData()
-
- async function imprimirDetalles() {
-
-    let id = location.search.split("?id=").filter(Number)
+    let id = location.search.split("?=id")
+    // .filter(Number)
     console.log(id)
-    let selectId = id[0]
+    let selectId = id[1]
     console.log(selectId)
     let detalles = []
 
@@ -71,7 +58,7 @@ infoVinoteca()
         <h3 class="name">${detalles[0].nombre}</h3>
         <p class="winery">${detalles[0].bodega}</p>
         <strong>
-            <p class="price">${detalles[0].precio}0$</p>
+            <p class="price">$${detalles[0].precio}0</p>
         </strong>
         <div class="buttonsDetail">
             <div class="quantity">
