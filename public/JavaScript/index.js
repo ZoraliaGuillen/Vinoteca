@@ -559,8 +559,8 @@ function filtrosCombinadosUvas() {
 
     else if (datoLimpio === "" && arrayCheckbox.length > 0) {
 
-        arrayCheckbox.map(category =>
-            vinosPorUva.push(...arrayAFiltrar.filter(vino => vino.uva === category))
+        arrayCheckbox.map(uva =>
+            vinosPorUva.push(...arrayAFiltrar.filter(vino => vino.uva === uva))
         )
     }
 
