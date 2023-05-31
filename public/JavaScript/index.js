@@ -1,3 +1,18 @@
+// MENU DESPLEGABLE
+
+var nav= document.querySelector(".navVinos");
+var open = document.querySelector("#open");
+var close = document.querySelector("#close");
+
+open.addEventListener("click", () => {
+    nav.classList.add("visibility");
+})
+
+close.addEventListener("click", () => {
+    nav.classList.remove("visibility");
+})
+
+
 let tarjetasVinos = document.getElementById("tarjetasVinos");
 let navVinos = document.getElementsByClassName("navLink");
 let home = document.getElementById("home");
