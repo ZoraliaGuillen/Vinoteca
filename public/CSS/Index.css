@@ -24,7 +24,7 @@ header{
 }
 
 .headerOne, .headerTwo, .headerThree{
-    padding: 0px 75px;
+    padding: 10px 75px;
     border-bottom: var(--border);
     display: flex;
     justify-content: center;
@@ -37,6 +37,7 @@ header{
 }
 
 .headerOne p{
+    font-size: 12.5px;
     color: white;
 }
 
@@ -81,13 +82,15 @@ header{
 
 .headerTwo .icons{
     width: 250px;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
 }
 
 .headerTwo .icons i{
     font-size: 30px;
     color: black;
-    padding: 5px;
 }
 
 .fa-cart-shopping{
@@ -115,7 +118,7 @@ header{
 .containerCartProducts{
     position: absolute;
     background-color: white;
-    top:100; right:0;
+    top:100px; right:0;
     width: 400px;
     height: 100vh;
     padding: 20px;
@@ -129,7 +132,7 @@ header{
     display: none;
 }
 
-/* .cartProduct{
+.cartProduct{
     text-align: left;
 }
 
@@ -195,11 +198,11 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 .headerThree > nav > ul > li > a{
     font-size: 12.5px;
-    padding: 0px 10px;
 }
 
 .headerThree > nav > ul > li > a:hover{
@@ -258,13 +261,13 @@ header{
 }
 
 section > h2{
-    color: black;
     font-size: 25px;
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 25px;
     text-align: center;
 }
 
-.wines, .tipesOfWines, .countries, .tipesOfGrapes, .recommendedWines, .newslatter, .allWines, .contact, footer{
+.wines, .tipesOfWines, .countries, .tipesOfGrapes, .recommendedWines, .newslatter, .allWines, .contact, .footer{
     padding: 0px 75px;
     display: flex;
     flex-direction: column;
@@ -293,13 +296,11 @@ section > h2{
     width: 250px;
     text-align: center;
     padding: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
 }
 
 .cardWines .fa-heart{
     position: absolute;
-    color: var(--grey);
+    color: var(--purple1);
     font-size: 20px;
     top: 15px;
     left: 15px;
@@ -340,12 +341,16 @@ section > h2{
 }
 
 .cardWines button{
-    background-color: var(--grey);
+    background-color: var(--purple1);
     padding: 5px 10px;
 }
 
+.cardWines button a{
+    color: white;
+}
+
 .cardWines .fa-star, .cardWines .fa-star-half-stroke{
-    color: var(--purple2);
+    color: var(--purple1);
     font-size: 20px;
 }
 
@@ -406,11 +411,11 @@ section > h2{
 }
 
 .cardContainerTipesOfGrapes img{
-    width: 175px;
+    width: 95px;
 }
 
 .cardContainerTipesOfGrapes{
-    gap: 15px;
+    gap: 5px;
 }
 
 
@@ -455,7 +460,6 @@ section > h2{
 }
 
 .newslatter{
-    margin-top: 25px;
     background-color: var(--purple2);
     display: flex;
     flex-direction: column;
@@ -484,67 +488,78 @@ section > h2{
     background-color: black;
     color: white;
     padding: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 
 
 .allWines{
-    margin: 0px 75px;
-    padding-top: 140px;
-    display: block;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-
-.cardContainerWiness{
+    padding: 190px 75px 50px 75px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.acordeon{
-    cursor:pointer;
-    padding: 20px;
-    border:none;
-    text-align: left;
-    align-items: center;
-    outline:none;
-    font-size: 16px;
-    height: 20px;
-}
-
-.active, .acordeon:hover{
-    background-color:#62152D;
-    color:#fff;
-}
-
-.panel{
-    overflow: hidden;
-    display:none;
-}
-
-.row{
-    display:flex;
     flex-direction: row;
 }
 
 .filters{
-    position: relative;
-    display:flex;
-    flex-direction: column;
-    min-width: 300px;
-    height: auto;
- 
+    width: 20%;
+    height: 420px;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    border-left: var(--border);
+    overflow-y: scroll;
 }
 
-.filters label{
-    color: var(--purple1);
-    display:flex;
-    flex-direction:column;
+.filters::-webkit-scrollbar{
+    width: 7.5px;
 }
+
+.filters::-webkit-scrollbar-thumb{
+    background-color: var(--purple1);
+    border-radius: 7.5px;
+}
+
+.filters h3{
+    font-size: 20px;
+    padding: 15px;
+    border-bottom: var(--border);
+}
+
+.filters .acordeon{
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.active, .filters .acordeon:hover{
+    background-color: #f7f7f7;
+}
+
+.panel{
+    display:none;
+    padding: 10px;
+}
+
+input[type="checkbox"]{
+    accent-color: var(--purple1);
+}
+
+.cardContainerWiness{
+    background-color: var(--grey);
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0px;
+}
+
+
+
+
 
 .mensaje{
     display: flex;
@@ -555,11 +570,6 @@ section > h2{
     color: red;
     margin-top: 20px;
 }
-
-.wines{
-flex-direction: column;
-}
-
 
 
 /* CONTACTANOS */
@@ -678,7 +688,6 @@ h2{
 
 .footer{
     background-color: black;
-    padding: 25px 75px;
 }
 
 .footer .links{

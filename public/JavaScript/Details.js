@@ -60,14 +60,6 @@ function imprimirDetalles() {
         <strong>
             <p class="price">$${detalles[0].precio}0</p>
         </strong>
-        <div class="buttonsDetail">
-            <div class="quantity">
-                <button>-</button>
-                <div>1</div>
-                <button>+</button>
-            </div>
-            <button class="shoppingCart">AGREGAR A CARRITO <i class="fa-solid fa-cart-shopping color"></i></button>
-        </div>
         <div class="winesDetails">
             <h3>Detalles</h3>
             <div>

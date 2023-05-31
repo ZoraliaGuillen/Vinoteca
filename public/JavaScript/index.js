@@ -192,14 +192,10 @@ function pintarHTML(array) {
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                 class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
                 <h3 class="name">${array[i].nombre}</h3>
-                <p class="winerys">${array[i].bodega}</p>
-                <strong>
+                <p class="winerys" class="winery">${array[i].bodega}</p>
                     <p class="price">$${array[i].precio}</p>
-                </strong>
-                <div class="buttons">
                     <button><a href="./HTML/Details.html?=id${array[i].id}">VER DETALLE</a></button>
-                    <button class="add"><a href="">AGREGAR</a></button>
-                </div>
+                    <button class="btnAddCart">AGREGAR</button>
             </div>
         `
     }
@@ -272,35 +268,36 @@ function rutas() {
 
 ///
 
-// const btnCart = document.querySelector('.fa-cart-shopping');
-// const containerCartProducts = document.querySelector(".containerCartProducts")
+const btnCart = document.querySelector('.fa-cart-shopping');
+const containerCartProducts = document.querySelector(".containerCartProducts")
 
-// btnCart.addEventListener('click', () => {
-//     containerCartProducts.classList.toggle('hidden-cart');
-// });
+btnCart.addEventListener('click', () => {
+containerCartProducts.classList.toggle('hidden-cart');
+});
 
-// const rowProduct = document.querySelector('.rowProduct');
-// const cartProduct = document.querySelector('.cartProduct');
-// const cardContainerWines = document.querySelector('.cardContainerWines')
-// let allProducts = []
-// const Total = document.querySelector('.Total');
-// const countProducts = document.querySelector('#countProductsCartShopping');
-// const cartEmpty = document.querySelector('.cartEmpty');
-// const cartTotal = document.querySelector('.cartTotal');
+const rowProduct = document.querySelector('.rowProduct');
+const cartProduct = document.querySelector('.cartProduct');
+const cardContainerWines = document.querySelector('.cardContainerWiness')
+let allProducts = []
+const Total = document.querySelector('.Total');
+const countProducts = document.querySelector('#countProductsCartShopping');
+const cartEmpty = document.querySelector('.cartEmpty');
+const cartTotal = document.querySelector('.cartTotal');
 
-// cardContainerWines.addEventListener('click', e => {
-//     if (e.target.classList.contains('btnAddCart')) {
-//         const product = e.target.parentElement;
+cardContainerWines.addEventListener('click', e => {
+    if (e.target.classList.contains('btnAddCart')) {
+        const product = e.target.parentElement;
+        console.log(product.querySelector('.name').textContent)
 
-//         const infoProduct = {
-//             quantity: 1,
-//             title: product.querySelector('.').textContent,
-//             price: product.querySelector('p').textContent,
-//         };
-
-//         console.log(infoProduct)
-//     }
-// })
+        const infoProduct = {
+            quantity: 1,
+            name: product.querySelector('.name').textContent,
+            price: product.querySelector('.price').textContent,
+        }
+        allProducts = [...allProducts,infoProduct]
+    }
+    console.log(allProducts)
+})
 
 
 //CODIGO DE CARRITO
@@ -450,8 +447,10 @@ function uvasCategories(array) {
     let categoriasUvas = ""
     lastCategories.map(category =>
         categoriasUvas +=
-        `
-    <label><input type="checkbox" value="${category}"> ${category}</label>
+        `<div>
+        <input type="checkbox" value="${category}">
+        <label> ${category}</label>
+        <div>
     `
     )
     document.getElementById("checkboxTiposDeUvas").innerHTML = categoriasUvas
@@ -461,8 +460,10 @@ function uvasCategories(array) {
     let categoriasPais = ""
     lastCategoriesPais.map(category => 
         categoriasPais +=
-           `
-    <label><input type="checkbox" value="${category}"> ${category}</label>
+           `<div>
+           <input type="checkbox" value="${category}">
+           <label> ${category}</label>
+           <div>
     ` )
 
     document.getElementById("checkboxPaises").innerHTML = categoriasPais
@@ -472,8 +473,10 @@ function uvasCategories(array) {
     let categoriasTipos = ""
     lastCategoriesTipos.map(category => 
         categoriasTipos +=
-           `
-    <label><input type="checkbox" value="${category}"> ${category}</label>
+           `<div>
+           <input type="checkbox" value="${category}">
+           <label> ${category}</label>
+           <div>
     ` )
 
     document.getElementById("checkboxTiposDeVinos").innerHTML = categoriasTipos
