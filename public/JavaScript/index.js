@@ -194,7 +194,7 @@ function pintarHTML(array) {
                 <h3 class="name">${array[i].nombre}</h3>
                 <p class="winerys">${array[i].bodega}</p>
                 <strong>
-                    <p class="price">${array[i].precio}</p>
+                    <p class="price">$${array[i].precio}</p>
                 </strong>
                 <div class="buttons">
                     <button><a href="./HTML/Details.html?=id${array[i].id}">VER DETALLE</a></button>
@@ -213,9 +213,9 @@ function pintarHTML(array) {
 //COLOCANDO LAS RUTAS DESDE DETALLES A LOS FILTRADOS DE HOME
 
 
-var page = location.search.split("?page=");
+// var page = location.search.split("?page=");
 
-console.log(page); { }
+// console.log(page);
 
 
 function rutas() {
