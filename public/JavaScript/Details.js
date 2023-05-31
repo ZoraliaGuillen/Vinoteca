@@ -27,8 +27,6 @@ infoVinotecaDos()
 
 function imprimirDetalles() {
 
-    console.log("hola")
-
     let id = location.search.split("?=id")
     // .filter(Number)
     console.log(id)

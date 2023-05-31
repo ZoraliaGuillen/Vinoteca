@@ -209,11 +209,6 @@ function pintarHTML(array) {
 //COLOCANDO LAS RUTAS DESDE DETALLES A LOS FILTRADOS DE HOME
 
 
-// var page = location.search.split("?page=");
-
-// console.log(page);
-
-
 function rutas() {
 
     var page = location.search.split("?page=");
@@ -253,20 +248,6 @@ function rutas() {
 }
 
 
-
-// for(let i=0; i< detalles.length; i++){
-//     detalles[i].addEventListener("click", function(){
-//         console.log(detalles)
-//         if(detalles.ref=="#"){
-//             detalles.href="./HTML/Details.html?=id${array[i].Id}"
-//             }
-//             else("Entre en error")
-
-//         })
-//     }
-
-
-///
 
 const btnCart = document.querySelector('.fa-cart-shopping');
 const containerCartProducts = document.querySelector(".containerCartProducts")
@@ -966,12 +947,3 @@ for (let i = 0; i < elementAcordeon.length; i++) {
 
 
 
-//LANDING 
-
-// function vinosEspeciales(array){
-
-// vinosEspeciales1.addEventListener("click", function(){
-//     href= "./HTML.Details.html"
-//     pintarHTML()
-// })
-// }
