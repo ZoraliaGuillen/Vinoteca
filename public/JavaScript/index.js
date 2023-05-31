@@ -186,7 +186,7 @@ function pintarHTML(array) {
             `
             <div class="cardWines">
                 <i class="fa-solid fa-heart"></i>
-                <img src=${array[i].imagen} alt="${array[i].nombre}">
+                <img class="img" src=${array[i].imagen} alt="${array[i].nombre}">
                 <img src=${array[i].bandera} alt="" class="flag">
                 <p class="score">${array[i].puntuacion}</p>
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
@@ -291,6 +291,7 @@ cardContainerWines.addEventListener('click', e => {
 
         const infoProduct = {
             quantity: 1,
+            img: product.querySelector('.img').src,
             name: product.querySelector('.name').textContent,
             price: product.querySelector('.price').textContent,
         }
@@ -298,6 +299,10 @@ cardContainerWines.addEventListener('click', e => {
     }
     console.log(allProducts)
 })
+
+// allProducts.forEach(product=>{
+//     const 
+// })
 
 
 //CODIGO DE CARRITO
