@@ -56,7 +56,7 @@ function imprimirDetalles() {
         <h3 class="name">${detalles[0].nombre}</h3>
         <p class="winery">${detalles[0].bodega}</p>
         <strong>
-            <p class="price">$${detalles[0].precio}0</p>
+            <p class="price">$${detalles[0].precio}</p>
         </strong>
         <div class="winesDetails">
             <h3>Detalles</h3>

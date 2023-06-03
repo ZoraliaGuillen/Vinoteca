@@ -66,14 +66,20 @@ header{
 
 .headerTwo .titleVinoteca{
     display: flex;
+    display: row;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    /* gap: 5px; */
+    width:300px;
 }
 
 .headerTwo .titleVinoteca h1{
     font-size: 40px;
     color: black;
+}
+
+.headerTwo .titleVinoteca a{
+    width:300px;
 }
 
 .headerTwo .titleVinoteca i{
